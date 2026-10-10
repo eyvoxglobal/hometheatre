@@ -937,6 +937,7 @@
             });
             const packageOpt = selectedOptions.join(', ');
             
+            // ഫയർബേസിലേക്ക് സേവ് ചെയ്യാൻ ശ്രമിക്കുന്നു. എറർ വന്നാലും WhatsApp പ്രവർത്തിക്കും.
             try {
                 if(db) {
                     const reqRef = collection(db, 'artifacts', appId, 'public', 'data', 'consultations');
@@ -950,25 +951,24 @@
                         date: new Date().toLocaleString()
                     });
                 }
-                
-                alert("താങ്കളുടെ മെസ്സേജ് വിജയകരമായി അയച്ചിരിക്കുന്നു! ഞങ്ങൾ ഉടൻ തന്നെ ബന്ധപ്പെടുന്നതാണ്.");
-                e.target.reset();
-                
-                let wpMsg = `*New Quotation Request*%0A%0A*Name:* ${name}%0A*Mobile:* ${phone}`;
-                if(place) wpMsg += `%0A*Place:* ${place}`;
-                if(roomSize) wpMsg += `%0A*Room Size:* ${roomSize}`;
-                if(packageOpt) wpMsg += `%0A*Options Selected:* ${packageOpt}`;
-                if(msg) wpMsg += `%0A*Requirements:* ${msg}`;
-                
-                window.open(`https://wa.me/919847700955?text=${wpMsg}`, '_blank');
-
             } catch (error) {
-                console.error("Error saving request:", error);
-                alert("ക്ഷമിക്കണം, ഒരു തകരാറുണ്ടായി. ദയവായി നേരിട്ട് WhatsApp വഴി ബന്ധപ്പെടുക.");
-            } finally {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }
+                console.warn("Firebase permission blocked saving, but proceeding to WhatsApp.", error);
+            } 
+            
+            // WhatsApp-ലേക്ക് വിവരങ്ങൾ അയക്കുന്ന ഭാഗം (ഡാറ്റാബേസ് എറർ ബാധിക്കില്ല)
+            let wpMsg = `*New Quotation Request*%0A%0A*Name:* ${name}%0A*Mobile:* ${phone}`;
+            if(place) wpMsg += `%0A*Place:* ${place}`;
+            if(roomSize) wpMsg += `%0A*Room Size:* ${roomSize}`;
+            if(packageOpt) wpMsg += `%0A*Options Selected:* ${packageOpt}`;
+            if(msg) wpMsg += `%0A*Requirements:* ${msg}`;
+            
+            window.open(`https://wa.me/919847700955?text=${wpMsg}`, '_blank');
+            
+            alert("താങ്കളുടെ മെസ്സേജ് വിജയകരമായി അയച്ചിരിക്കുന്നു!");
+            e.target.reset();
+            
+            btn.innerHTML = originalText;
+            btn.disabled = false;
         };
 
         window.openVideo = (url) => {
