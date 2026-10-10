@@ -632,7 +632,7 @@
         // Configuration
         const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/zo4glrb3/image/upload";
         const UPLOAD_PRESET = "eyvoxglobal";
-        const FALLBACK_IMG = "https://via.placeholder.com/800x600/111111/d4af37?text=Image+Unavailable";
+        const FALLBACK_IMG = "https://placehold.co/800x600/111111/d4af37?text=Image+Unavailable";
         const onErrStr = `this.onerror=null;this.src='${FALLBACK_IMG}';`;
         
         // Allowed Admin Emails
@@ -651,7 +651,8 @@
             heroCurrent: 0,
             testiCurrent: 0,
             lightbox: { items: [], index: 0 },
-            adminForm: { editingId: null, data: {} }
+            adminForm: { editingId: null, data: {} },
+            isUploading: false
         };
 
         const SERVICES = [
@@ -1045,7 +1046,8 @@
             
             const btnTextElement = fileInput.nextElementSibling;
             const originalText = btnTextElement.innerText;
-            btnTextElement.innerText = "Uploading...";
+            btnTextElement.innerText = "Uploading... Please wait";
+            window.appState.isUploading = true;
             
             try {
                 const fd = new FormData(); 
@@ -1058,6 +1060,7 @@
                 if(data.error) {
                     alert("Cloudinary Upload Error:\n" + data.error.message + "\n\nദയവായി നിങ്ങളുടെ Cloudinary അക്കൗണ്ടിൽ കയറി 'eyvoxglobal' എന്ന Upload Preset സെറ്റിംഗ്സിൽ 'Unsigned' എന്ന് മാറ്റി സേവ് ചെയ്യുക.");
                     btnTextElement.innerText = "Upload Failed"; 
+                    window.appState.isUploading = false;
                     return;
                 }
 
@@ -1070,11 +1073,15 @@
                 } else {
                     appState.adminForm.data[field] = optUrl;
                 }
+                
+                window.appState.isUploading = false;
+                alert("ചിത്രം വിജയകരമായി അപ്‌ലോഡ് ചെയ്തു! ഇനി നിങ്ങൾക്ക് താഴെ പോയി SAVE ചെയ്യാം.");
                 renderAdmin();
             } catch(e) { 
                 console.error("Cloudinary Upload Failed:", e); 
                 alert("Cloudinary-ലേക്ക് കണക്ട് ചെയ്യാൻ സാധിക്കുന്നില്ല. നിങ്ങളുടെ ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിക്കുക.");
                 btnTextElement.innerText = "Upload Failed"; 
+                window.appState.isUploading = false;
             }
         };
 
@@ -1085,8 +1092,17 @@
                 alert("Firebase Error: System not connected to DB.\nനിങ്ങൾ അഡ്മിൻ ആയി ലോഗിൻ ചെയ്തിട്ടില്ല അല്ലെങ്കിൽ Firebase Rules സെറ്റ് ചെയ്തിട്ടില്ല.");
                 return;
             }
+            if(window.appState.isUploading) {
+                alert("ദയവായി ചിത്രം പൂർണ്ണമായി അപ്‌ലോഡ് ആവുന്നത് വരെ കാത്തിരിക്കുക...");
+                return;
+            }
             
             try {
+                // Remove empty slots from images array
+                if (appState.adminForm.data.images) {
+                    appState.adminForm.data.images = appState.adminForm.data.images.filter(img => img && img.trim() !== '');
+                }
+
                 // Limit Home Page Featured Project to ONLY ONE
                 if (colName === 'projects' && appState.adminForm.data.featured) {
                     const otherFeatured = appState.projects.filter(p => p.featured && p.id !== appState.adminForm.editingId);
