@@ -583,7 +583,6 @@
         </button>
         
         <div class="w-full h-full max-h-[90vh] flex flex-col items-center justify-center relative">
-            <!-- object-contain ensures the image is never stretched and displays original ratio -->
             <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain pointer-events-none transition-opacity duration-300" />
             <div id="lightbox-title-container" class="absolute bottom-10 left-0 right-0 text-center hidden">
                 <span id="lightbox-title" class="bg-black/80 px-6 py-2 text-white tracking-widest uppercase text-sm border border-white/10 shadow-lg shadow-black/50"></span>
@@ -633,7 +632,7 @@
         // Configuration
         const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/zo4glrb3/image/upload";
         const UPLOAD_PRESET = "eyvoxglobal";
-        const FALLBACK_IMG = "https://via.placeholder.com/800x600/111111/d4af37?text=Eyvox+Global";
+        const FALLBACK_IMG = "https://via.placeholder.com/800x600/111111/d4af37?text=Image+Unavailable";
         const onErrStr = `this.onerror=null;this.src='${FALLBACK_IMG}';`;
         
         // Allowed Admin Emails
@@ -749,7 +748,6 @@
             `).join('');
         }
 
-        // Layout: 80% Image / 20% Details for Project Cards
         function buildProjectCard(p, isFeatured) {
             const hasImages = p.images && p.images.length > 0;
             const encodedImages = encodeURIComponent(JSON.stringify(p.images || []));
@@ -1040,12 +1038,15 @@
             renderAdmin();
         };
 
-        // Cloudinary Upload API 
+        // Cloudinary Upload API With Error Alerts
         window.adminUpload = async (fileInput, field, index = null) => {
             const file = fileInput.files[0];
             if(!file) return;
-            const prevText = fileInput.nextElementSibling.innerText;
-            fileInput.nextElementSibling.innerText = "Uploading...";
+            
+            const btnTextElement = fileInput.nextElementSibling;
+            const originalText = btnTextElement.innerText;
+            btnTextElement.innerText = "Uploading...";
+            
             try {
                 const fd = new FormData(); 
                 fd.append('file', file); 
@@ -1054,6 +1055,12 @@
                 const res = await fetch(CLOUDINARY_URL, { method: 'POST', body: fd });
                 const data = await res.json();
                 
+                if(data.error) {
+                    alert("Cloudinary Upload Error:\n" + data.error.message + "\n\nദയവായി നിങ്ങളുടെ Cloudinary അക്കൗണ്ടിൽ കയറി 'eyvoxglobal' എന്ന Upload Preset സെറ്റിംഗ്സിൽ 'Unsigned' എന്ന് മാറ്റി സേവ് ചെയ്യുക.");
+                    btnTextElement.innerText = "Upload Failed"; 
+                    return;
+                }
+
                 // Add automatic formatting and quality optimization
                 const optUrl = data.secure_url.replace('/upload/', '/upload/f_auto,q_auto/');
                 
@@ -1066,33 +1073,52 @@
                 renderAdmin();
             } catch(e) { 
                 console.error("Cloudinary Upload Failed:", e); 
-                fileInput.nextElementSibling.innerText = "Upload Failed"; 
+                alert("Cloudinary-ലേക്ക് കണക്ട് ചെയ്യാൻ സാധിക്കുന്നില്ല. നിങ്ങളുടെ ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിക്കുക.");
+                btnTextElement.innerText = "Upload Failed"; 
             }
         };
 
         window.adminUpdateField = (field, val, isCheckbox=false) => { appState.adminForm.data[field] = val; };
         
         window.adminSave = async (colName) => {
-            if(!user) return alert("System not connected to DB. Please ensure Firebase Rules allow Anonymous writes.");
-            
-            // Limit Home Page Featured Project to ONLY ONE
-            if (colName === 'projects' && appState.adminForm.data.featured) {
-                const otherFeatured = appState.projects.filter(p => p.featured && p.id !== appState.adminForm.editingId);
-                const batchPromises = otherFeatured.map(p => updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'projects', p.id), { featured: false }));
-                await Promise.all(batchPromises);
+            if(!user) {
+                alert("Firebase Error: System not connected to DB.\nനിങ്ങൾ അഡ്മിൻ ആയി ലോഗിൻ ചെയ്തിട്ടില്ല അല്ലെങ്കിൽ Firebase Rules സെറ്റ് ചെയ്തിട്ടില്ല.");
+                return;
             }
-
-            const ref = collection(db, 'artifacts', appId, 'public', 'data', colName);
-            if(appState.adminForm.editingId) await updateDoc(doc(ref, appState.adminForm.editingId), appState.adminForm.data);
-            else await addDoc(ref, { ...appState.adminForm.data, createdAt: new Date().toISOString() });
             
-            appState.adminForm = { editingId: null, data: {} };
-            renderAdmin();
+            try {
+                // Limit Home Page Featured Project to ONLY ONE
+                if (colName === 'projects' && appState.adminForm.data.featured) {
+                    const otherFeatured = appState.projects.filter(p => p.featured && p.id !== appState.adminForm.editingId);
+                    const batchPromises = otherFeatured.map(p => updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'projects', p.id), { featured: false }));
+                    await Promise.all(batchPromises);
+                }
+
+                const ref = collection(db, 'artifacts', appId, 'public', 'data', colName);
+                if(appState.adminForm.editingId) {
+                    await updateDoc(doc(ref, appState.adminForm.editingId), appState.adminForm.data);
+                    alert("വിവരങ്ങൾ വിജയകരമായി അപ്ഡേറ്റ് ചെയ്തു!");
+                } else {
+                    await addDoc(ref, { ...appState.adminForm.data, createdAt: new Date().toISOString() });
+                    alert("പുതിയ വിവരങ്ങൾ വിജയകരമായി സേവ് ചെയ്തു!");
+                }
+                
+                appState.adminForm = { editingId: null, data: {} };
+                renderAdmin();
+            } catch(e) {
+                console.error("Firebase Save Error:", e);
+                alert("Firebase Error: സേവ് ചെയ്യാൻ സാധിച്ചില്ല.\n" + e.message + "\n\nനിങ്ങളുടെ Firebase Console -> Firestore Database -> Rules എന്നതിൽ 'allow read, write: if true;' എന്ന് കൊടുത്തിട്ടുണ്ടോ എന്ന് പരിശോധിക്കുക.");
+            }
         };
 
         window.adminDelete = async (colName, id) => {
-            if(confirm("Are you sure you want to delete this item?")) {
-                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', colName, id));
+            if(confirm("ഇത് ഡിലീറ്റ് ചെയ്യണം എന്ന് ഉറപ്പാണോ?")) {
+                try {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', colName, id));
+                    alert("വിജയകരമായി ഡിലീറ്റ് ചെയ്തു!");
+                } catch(e) {
+                    alert("Firebase Error: ഡിലീറ്റ് ചെയ്യാൻ സാധിച്ചില്ല.\n" + e.message);
+                }
             }
         };
 
@@ -1119,7 +1145,7 @@
             } else if (item.image) {
                  window.openLightbox(encodeURIComponent(JSON.stringify([item.image])), 0);
             } else {
-                 alert("No image available to view for this item.");
+                 alert("ഈ ഐറ്റത്തിന് കാണിക്കാൻ ചിത്രങ്ങൾ ലഭ്യമല്ല.");
             }
         };
 
