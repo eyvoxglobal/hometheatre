@@ -1064,8 +1064,8 @@
                     return;
                 }
 
-                // Add automatic formatting and quality optimization
-                const optUrl = data.secure_url.replace('/upload/', '/upload/f_auto,q_auto/');
+                // Use the direct secure URL without dynamic transformations to prevent Cloudinary blocks
+                const optUrl = data.secure_url;
                 
                 if(index !== null) {
                     if(!appState.adminForm.data[field]) appState.adminForm.data[field] = [];
