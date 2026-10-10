@@ -614,17 +614,16 @@
         };
         const appId = 'eyvox-4049b';
 
-        let app, auth, db, user;
+        let app, auth, db, user = null;
         try {
             app = initializeApp(firebaseConfig);
             auth = getAuth(app);
             db = getFirestore(app);
             
-            // Auto Login as Anonymous for public site to read data
+            // Auto Login as Anonymous (Optional for future rules)
             signInAnonymously(auth).then(cred => { 
                 user = cred.user; 
-                initListeners(); 
-            }).catch(console.error);
+            }).catch(e => console.warn("Anonymous auth off, public view still works."));
         } catch(e) {
             console.error("Firebase init failed", e);
         }
@@ -753,30 +752,45 @@
             const hasImages = p.images && p.images.length > 0;
             const encodedImages = encodeURIComponent(JSON.stringify(p.images || []));
             return `
-                <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 mb-32 border-b border-white/10 pb-16 last:border-0 last:mb-0 last:pb-0">
-                    <div class="lg:col-span-4 relative bg-black group h-[60vh] md:h-[80vh] flex items-center justify-center border border-white/5 overflow-hidden" id="proj-img-container-${p.id}">
-                        ${hasImages ? `
-                            ${p.images.map((img, idx) => `
-                                <img src="${img}" onerror="${onErrStr}" class="absolute inset-0 w-full h-full object-contain cursor-pointer transition-transform duration-700 hover:scale-[1.02] ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}" data-index="${idx}" onclick="window.openLightbox('${encodedImages}', ${idx})" />
-                            `).join('')}
-                            ${p.images.length > 1 ? `
-                                <button onclick="window.slideProjectImage('${p.id}', -1)" class="absolute left-4 p-4 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
-                                <button onclick="window.slideProjectImage('${p.id}', 1)" class="absolute right-4 p-4 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
-                            ` : ''}
-                        ` : `<div class="text-gray-500 uppercase tracking-widest text-sm">No Images</div>`}
-                    </div>
-                    <div class="lg:col-span-1 flex flex-col justify-center">
-                        <h3 class="text-3xl tracking-widest uppercase mb-2 leading-tight">${p.title || p.location || 'Project'}</h3>
-                        <p class="text-accent text-xs tracking-widest uppercase mb-8">${p.location || ''}</p>
-                        <div class="space-y-5 text-sm font-light mb-8 text-gray-300">
-                            ${p.roomSize ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Room Size</span>${p.roomSize}</div>` : ''}
-                            ${p.screenSize ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Screen</span>${p.screenSize}</div>` : ''}
-                            ${p.projector ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Projector</span>${p.projector}</div>` : ''}
-                            ${p.audio ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Sound</span>${p.audio}</div>` : ''}
-                            ${p.budget ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Budget</span>${p.budget}</div>` : ''}
+                <div class="border border-white/20 p-[30px] md:p-[50px] mb-[60px] last:mb-0 rounded-sm">
+                    <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 h-full">
+                        <div class="lg:col-span-4 relative bg-black group h-[50vh] md:h-[70vh] flex items-center justify-center overflow-hidden border border-white/5" id="proj-img-container-${p.id}">
+                            ${hasImages ? `
+                                ${p.images.map((img, idx) => `
+                                    <img src="${img}" onerror="${onErrStr}" class="absolute inset-0 w-full h-full object-contain cursor-pointer transition-transform duration-700 hover:scale-[1.02] ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}" data-index="${idx}" onclick="window.openLightbox('${encodedImages}', ${idx})" />
+                                `).join('')}
+                                ${p.images.length > 1 ? `
+                                    <button onclick="window.slideProjectImage('${p.id}', -1)" class="absolute left-4 p-3 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+                                    <button onclick="window.slideProjectImage('${p.id}', 1)" class="absolute right-4 p-3 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+                                ` : ''}
+                            ` : `<div class="text-gray-500 uppercase tracking-widest text-sm">No Images</div>`}
                         </div>
-                        ${p.description ? `<p class="text-gray-400 font-light text-sm leading-relaxed mb-8 border-t border-white/10 pt-6">${p.description}</p>` : ''}
-                        ${p.youtubeUrl ? `<button onclick="window.openVideo('${p.youtubeUrl}')" class="w-full flex items-center justify-center gap-3 bg-white/5 border border-white/20 hover:border-accent hover:bg-accent hover:text-black py-4 text-xs mt-auto cursor-pointer transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> WATCH VIDEO</button>` : ''}
+                        <div class="lg:col-span-1 flex flex-col h-full">
+                            <h3 class="text-sm md:text-base font-bold tracking-widest uppercase mb-1 leading-tight">${p.title || p.location || 'Project'}</h3>
+                            <p class="text-accent text-[10px] tracking-widest uppercase mb-6">${p.location || ''}</p>
+                            
+                            <div class="space-y-4 text-xs font-light mb-6 text-gray-300 flex-grow">
+                                ${p.roomSize ? `<div><span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-0.5">Room Size</span>${p.roomSize}</div>` : ''}
+                                ${p.screenSize ? `<div><span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-0.5">Screen Size</span>${p.screenSize}</div>` : ''}
+                                ${p.projector ? `<div><span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-0.5">Projector</span>${p.projector}</div>` : ''}
+                                ${p.audio ? `<div><span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-0.5">Sound</span>${p.audio}</div>` : ''}
+                                ${p.budget ? `<div><span class="text-gray-500 uppercase tracking-widest text-[9px] block mb-0.5">Budget</span>${p.budget}</div>` : ''}
+                            </div>
+                            
+                            ${p.description ? `<p class="text-gray-400 font-light text-[11px] leading-relaxed mb-6 border-t border-white/10 pt-4">${p.description}</p>` : ''}
+                            
+                            ${p.youtubeUrl ? `
+                                <div class="mt-auto pt-2">
+                                    <button onclick="window.openVideo('${p.youtubeUrl}')" class="w-full max-w-[140px] flex items-center justify-center gap-2.5 bg-[#1a1a1a] rounded-lg py-2 px-3 cursor-pointer transition-all duration-300 hover:scale-105 border border-white/20 mx-auto lg:mx-0 hover:bg-[#2a2a2a] hover:border-white/50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="15" viewBox="0 0 28 20" class="flex-shrink-0">
+                                            <rect width="28" height="20" rx="6" fill="#ff0000"/>
+                                            <polygon points="11,5 19,10 11,15" fill="#ffffff"/>
+                                        </svg>
+                                        <span class="text-white font-medium text-[10px] tracking-wider uppercase mt-0.5">Watch Video</span>
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
                     </div>
                 </div>
             `;
@@ -988,7 +1002,7 @@
         }, {passive: true});
 
         function initListeners() {
-            if(!db || !user) return;
+            if(!db) return; // Removed !user check so public data loads instantly
             const pRef = collection(db, 'artifacts', appId, 'public', 'data', 'projects');
             onSnapshot(pRef, snap => { appState.projects = snap.docs.map(d => ({id: d.id, ...d.data()})); updateUI(); if(appState.route === 'admin-dashboard') renderAdmin(); }, console.error);
             const gRef = collection(db, 'artifacts', appId, 'public', 'data', 'gallery');
@@ -1317,6 +1331,7 @@
         // Initialize First Render
         window.onload = () => {
             renderStaticSections();
+            initListeners(); // Load data immediately on startup
             updateUI();
         };
     </script>
