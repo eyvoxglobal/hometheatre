@@ -6,7 +6,6 @@
     <title>Eyvox Global | Premium Home Theatre Manufacturing</title>
     <meta name="description" content="Eyvox Global designs and manufactures premium home theatres, education theatres and custom cinema spaces in Kerala, India and international markets.">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -25,10 +24,8 @@
         }
     </script>
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Custom Styles -->
     <style>
         :root {
             --accent: #D4AF37;
@@ -73,7 +70,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Scroll Reveal Utility */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -84,7 +80,6 @@
             transform: translateY(0);
         }
 
-        /* FAQ Accordion */
         .faq-content {
             max-height: 0;
             overflow: hidden;
@@ -96,17 +91,15 @@
             opacity: 1;
         }
 
-        /* Sliders */
         .hero-slide { transition: opacity 2s ease-in-out; }
         .testimonial-slide { transition: opacity 1s ease-in-out; }
     </style>
 </head>
 <body class="selection:bg-accent selection:text-black flex flex-col min-h-screen">
 
-    <!-- Header -->
     <header id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-6">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-            <img src="Company logo.png" alt="EYVOX GLOBAL" class="h-8 md:h-10 cursor-pointer filter brightness-0 invert" onclick="window.navigate('home')" onerror="this.onerror=null;this.src='https://via.placeholder.com/200x50/111111/d4af37?text=EYVOX+GLOBAL';" />
+            <img src="Company logo.png" alt="EYVOX GLOBAL" class="h-8 md:h-10 cursor-pointer filter brightness-0 invert" onclick="window.navigate('home')" onerror="this.onerror=null;this.src='https://placehold.co/200x50/111111/d4af37?text=EYVOX+GLOBAL';" />
             
             <nav class="hidden lg:flex items-center gap-10">
                 <button onclick="window.navigate('home')" class="nav-link uppercase tracking-widest text-sm transition-colors cursor-pointer text-accent font-bold" data-target="home">Home</button>
@@ -125,7 +118,6 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
         <button class="absolute top-8 right-8 text-white cursor-pointer" onclick="document.getElementById('mobile-menu').classList.add('opacity-0', 'pointer-events-none'); document.getElementById('mobile-menu').classList.remove('opacity-100', 'pointer-events-auto');">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -145,32 +137,31 @@
 
     <main class="flex-grow">
         
-        <!-- PAGE: HOME -->
         <div id="page-home" class="page-section block">
-            <!-- Hero Section -->
+            
             <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
                 <div id="hero-slides">
                     <div class="hero-slide absolute inset-0 opacity-100 z-10">
-                        <img src="eyvoxglobal-head01.jpg" onerror="this.onerror=null;this.src='https://via.placeholder.com/1920x1080/111111/d4af37?text=Eyvox+Global';" alt="Home Cinema 1" class="w-full h-full object-cover ken-burns" />
+                        <img src="eyvoxglobal-head01.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111111/d4af37?text=Eyvox+Global';" alt="Home Cinema 1" class="w-full h-full object-cover ken-burns" />
                         <div class="absolute inset-0 cinematic-overlay"></div>
                     </div>
                     <div class="hero-slide absolute inset-0 opacity-0 z-0">
-                        <img src="eyvoxglobal-head02.jpg" onerror="this.onerror=null;this.src='https://via.placeholder.com/1920x1080/111111/d4af37?text=Eyvox+Global';" alt="Home Cinema 2" class="w-full h-full object-cover ken-burns" />
+                        <img src="eyvoxglobal-head02.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111111/d4af37?text=Eyvox+Global';" alt="Home Cinema 2" class="w-full h-full object-cover ken-burns" />
                         <div class="absolute inset-0 cinematic-overlay"></div>
                     </div>
                     <div class="hero-slide absolute inset-0 opacity-0 z-0">
-                        <img src="eyvoxglobal-head03.jpg" onerror="this.onerror=null;this.src='https://via.placeholder.com/1920x1080/111111/d4af37?text=Eyvox+Global';" alt="Home Cinema 3" class="w-full h-full object-cover ken-burns" />
+                        <img src="eyvoxglobal-head03.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111111/d4af37?text=Eyvox+Global';" alt="Home Cinema 3" class="w-full h-full object-cover ken-burns" />
                         <div class="absolute inset-0 cinematic-overlay"></div>
                     </div>
                     <div class="hero-slide absolute inset-0 opacity-0 z-0">
-                        <img src="eyvoxglobal-head04.jpg" onerror="this.onerror=null;this.src='https://via.placeholder.com/1920x1080/111111/d4af37?text=Eyvox+Global';" alt="Home Cinema 4" class="w-full h-full object-cover ken-burns" />
+                        <img src="eyvoxglobal-head04.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111111/d4af37?text=Eyvox+Global';" alt="Home Cinema 4" class="w-full h-full object-cover ken-burns" />
                         <div class="absolute inset-0 cinematic-overlay"></div>
                     </div>
                 </div>
                 
                 <div class="relative z-20 text-center px-4 max-w-5xl mx-auto mt-20">
                     <div class="reveal">
-                        <img src="Company logo.png" onerror="this.onerror=null;this.src='https://via.placeholder.com/200x50/111111/d4af37?text=EYVOX+GLOBAL';" alt="EYVOX GLOBAL" class="h-16 md:h-24 mx-auto mb-8 filter drop-shadow-2xl brightness-0 invert opacity-90" />
+                        <img src="Company logo.png" onerror="this.onerror=null;this.src='https://placehold.co/200x50/111111/d4af37?text=EYVOX+GLOBAL';" alt="EYVOX GLOBAL" class="h-16 md:h-24 mx-auto mb-8 filter drop-shadow-2xl brightness-0 invert opacity-90" />
                     </div>
                     <div class="reveal" style="transition-delay: 200ms;">
                         <h1 class="text-4xl md:text-7xl font-light tracking-[0.15em] mb-6 leading-tight shadow-black drop-shadow-xl uppercase">
@@ -184,7 +175,7 @@
                     </div>
                     <div class="reveal flex flex-col sm:flex-row justify-center gap-4" style="transition-delay: 600ms;">
                         <button onclick="window.navigate('projects')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-accent text-black hover:bg-white cursor-pointer">View Projects</button>
-                        <button onclick="window.open('https://wa.me/919847700955')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 border border-white/30 hover:border-accent hover:text-accent backdrop-blur-sm cursor-pointer">Get A Quote</button>
+                        <button onclick="window.navigate('contact')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 border border-white/30 hover:border-accent hover:text-accent backdrop-blur-sm cursor-pointer">Get A Quote</button>
                     </div>
                 </div>
 
@@ -196,14 +187,12 @@
                 </div>
             </section>
 
-            <!-- Marquee -->
             <div class="marquee-container">
                 <div class="marquee-content" id="marquee-content">
                     <!-- Populated by JS -->
                 </div>
             </div>
 
-            <!-- About Section -->
             <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="reveal">
@@ -239,7 +228,6 @@
                 </div>
             </section>
 
-            <!-- Services Section -->
             <section class="py-24 bg-[#111] px-6 md:px-12">
                 <div class="max-w-7xl mx-auto">
                     <div class="reveal text-center mb-16">
@@ -253,12 +241,11 @@
                 </div>
             </section>
 
-            <!-- Featured Projects Section -->
             <section class="py-24 px-6 md:px-12 max-w-[1600px] mx-auto">
-                <div class="reveal mb-16">
+                <div class="reveal mb-16 text-center">
                     <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Portfolio</p>
                     <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Featured Project</h2>
-                    <div class="h-px w-24 bg-accent mt-6 opacity-50"></div>
+                    <div class="h-px w-24 bg-accent mt-6 opacity-50 mx-auto"></div>
                 </div>
                 <div id="home-featured-projects" class="mt-16">
                     <!-- Populated by JS -->
@@ -268,7 +255,6 @@
                 </div>
             </section>
 
-            <!-- Process Section -->
             <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-[#0a0a0a]">
                 <div class="reveal text-center mb-16">
                     <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Methodology</p>
@@ -301,7 +287,6 @@
                 </div>
             </section>
 
-            <!-- Gallery Preview -->
             <section class="py-24 bg-[#0a0a0a] px-6 md:px-12 border-t border-white/5">
                 <div class="max-w-7xl mx-auto">
                     <div class="reveal text-center mb-16">
@@ -318,10 +303,9 @@
                 </div>
             </section>
 
-            <!-- Technology Section -->
             <section class="py-0 flex flex-col lg:flex-row bg-[#111] border-t border-b border-white/5">
                 <div class="lg:w-1/2 h-[50vh] lg:h-auto relative overflow-hidden">
-                    <img src="eyvoxglobal-projector.jpg" onerror="this.onerror=null;this.src='https://via.placeholder.com/800x800/111111/d4af37?text=Eyvox+Global';" alt="Cinema Technology" class="w-full h-full object-cover opacity-70 transition-transform duration-1000 hover:scale-105" />
+                    <img src="eyvoxglobal-projector.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x800/111111/d4af37?text=Eyvox+Global';" alt="Cinema Technology" class="w-full h-full object-cover opacity-70 transition-transform duration-1000 hover:scale-105" />
                     <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
                 </div>
                 <div class="lg:w-1/2 p-12 lg:p-24 flex items-center">
@@ -355,7 +339,6 @@
                 </div>
             </section>
 
-            <!-- Testimonials Section -->
             <section class="py-24 bg-[#0a0a0a] px-6 md:px-12 border-t border-white/5">
                 <div class="max-w-4xl mx-auto text-center relative">
                     <div class="reveal mb-16">
@@ -370,7 +353,6 @@
                 </div>
             </section>
 
-            <!-- FAQ Section -->
             <section class="py-24 px-6 md:px-12 max-w-4xl mx-auto">
                 <div class="reveal text-center mb-16">
                     <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Information</p>
@@ -382,7 +364,6 @@
                 </div>
             </section>
 
-            <!-- Final CTA -->
             <section class="py-32 text-center bg-gradient-to-b from-[#111] to-black px-6 border-t border-white/5">
                 <h2 class="text-4xl md:text-5xl uppercase tracking-widest font-light mb-6">Get Your Theatre Designed</h2>
                 <p class="text-gray-400 font-light max-w-2xl mx-auto mb-10 text-lg">Tell us about your room and let our team create a cinema designed around your space, sound and vision.</p>
@@ -393,7 +374,6 @@
             </section>
         </div>
 
-        <!-- PAGE: PROJECTS -->
         <div id="page-projects" class="page-section hidden pt-32 pb-24 px-6 md:px-12 max-w-[1600px] mx-auto min-h-screen">
             <div class="mb-16">
                 <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Portfolio</p>
@@ -405,7 +385,6 @@
             </div>
         </div>
 
-        <!-- PAGE: GALLERY -->
         <div id="page-gallery" class="page-section hidden pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
             <div class="mb-16">
                 <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Visuals</p>
@@ -417,7 +396,6 @@
             </div>
         </div>
 
-        <!-- PAGE: CONTACT -->
         <div id="page-contact" class="page-section hidden pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
             <div class="grid md:grid-cols-2 gap-16">
                 <div class="reveal">
@@ -443,12 +421,37 @@
                 </div>
                 <div class="reveal" style="transition-delay: 200ms;">
                     <div class="bg-[#111] p-8 md:p-12 border border-white/5 mt-12 md:mt-0">
-                        <h3 class="text-2xl uppercase tracking-widest mb-8">Request Consultation</h3>
+                        <h3 class="text-2xl uppercase tracking-widest mb-8">Request Quotation</h3>
                         <form onsubmit="window.handleContactSubmit(event)" class="space-y-6">
-                            <input required id="contact_name" type="text" placeholder="Name" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
-                            <input required id="contact_phone" type="tel" placeholder="Phone Number" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
-                            <input id="contact_location" type="text" placeholder="Location & Room Size (Optional)" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
-                            <textarea required id="contact_message" placeholder="Tell us about your requirement..." rows="4" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light resize-none"></textarea>
+                            
+                            <input required id="contact_name" type="text" placeholder="Name *" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
+                            <input required id="contact_phone" type="tel" placeholder="Mobile Number *" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <input id="contact_place" type="text" placeholder="Place (Optional)" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
+                                <input id="contact_room_size" type="text" placeholder="Room Size (Optional)" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
+                            </div>
+
+                            <div class="bg-[#0a0a0a] border border-white/10 p-4">
+                                <p class="text-gray-400 font-light text-sm mb-4 uppercase tracking-wider">Select Options (Optional)</p>
+                                <div class="space-y-3">
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input type="checkbox" value="HD Projector + 5.1 Sound System" class="contact-option w-5 h-5 accent-accent" />
+                                        <span class="text-gray-300 font-light text-sm group-hover:text-white transition-colors">HD Projector + 5.1 Sound System</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input type="checkbox" value="4K Projector + 7.1 Sound System" class="contact-option w-5 h-5 accent-accent" />
+                                        <span class="text-gray-300 font-light text-sm group-hover:text-white transition-colors">4K Projector + 7.1 Sound System</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input type="checkbox" value="Other" class="contact-option w-5 h-5 accent-accent" />
+                                        <span class="text-gray-300 font-light text-sm group-hover:text-white transition-colors">Other</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <textarea id="contact_message" placeholder="Tell us more requirements (Optional)..." rows="4" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light resize-none"></textarea>
+                            
                             <button type="submit" class="w-full flex items-center justify-center gap-2 px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-green-600 text-white hover:bg-white hover:text-green-600 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                                 Send via WhatsApp
@@ -459,7 +462,6 @@
             </div>
         </div>
 
-        <!-- PAGE: ADMIN LOGIN -->
         <div id="page-admin-login" class="page-section hidden h-screen flex items-center justify-center bg-black">
             <div class="bg-[#111] p-12 border border-white/10 w-96 space-y-6 shadow-2xl text-center">
                 <h2 class="text-2xl uppercase tracking-widest text-accent mb-4">Admin Login</h2>
@@ -477,7 +479,6 @@
             </div>
         </div>
 
-        <!-- PAGE: ADMIN DASHBOARD -->
         <div id="page-admin-dashboard" class="page-section hidden min-h-screen bg-[#0a0a0a] pt-24 px-6 md:px-12 pb-24">
             <div class="max-w-7xl mx-auto">
                 <div class="flex justify-between items-center mb-12 border-b border-white/10 pb-6 overflow-x-auto no-scrollbar">
@@ -490,15 +491,12 @@
                         <button onclick="window.adminLogout()" class="uppercase tracking-wider text-sm pb-2 transition-colors text-red-500 hover:text-red-400 ml-auto">Logout</button>
                     </div>
                 </div>
-
-                <!-- Admin Dynamic Area -->
                 <div id="admin-content-area"></div>
             </div>
         </div>
 
     </main>
 
-    <!-- Instagram Section (Global before footer) -->
     <section id="global-instagram-section" class="py-24 bg-black px-6 md:px-12 border-t border-white/5">
         <div class="max-w-7xl mx-auto text-center">
             <div class="reveal mb-16">
@@ -517,12 +515,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-[#050505] pt-20 pb-10 px-6 md:px-12 relative z-10">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div class="md:col-span-1 flex flex-col items-start">
                 <div class="flex flex-col items-start mb-6">
-                    <img src="Company logo.png" onerror="this.onerror=null;this.src='https://via.placeholder.com/200x50/111111/d4af37?text=EYVOX+GLOBAL';" alt="EYVOX GLOBAL" class="h-8 filter brightness-0 invert opacity-70 hover:opacity-100 transition-opacity cursor-pointer mb-6" onclick="window.navigate('home')" />
+                    <img src="Company logo.png" onerror="this.onerror=null;this.src='https://placehold.co/200x50/111111/d4af37?text=EYVOX+GLOBAL';" alt="EYVOX GLOBAL" class="h-8 filter brightness-0 invert opacity-70 hover:opacity-100 transition-opacity cursor-pointer mb-6" onclick="window.navigate('home')" />
                     <div class="flex gap-6 text-gray-400">
                         <!-- Instagram Icon -->
                         <a href="https://www.instagram.com/eyvox_global" target="_blank" rel="noreferrer" class="hover:text-accent transition-colors cursor-pointer">
@@ -595,13 +592,12 @@
         <div id="lightbox-counter" class="absolute bottom-6 left-0 right-0 text-center tracking-widest text-xs text-white/50 z-20"></div>
     </div>
 
-    <!-- Firebase & JavaScript -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, addDoc, updateDoc, deleteDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Your Actual Firebase Config
+        // Your Firebase Config
         const firebaseConfig = {
             apiKey: "AIzaSyCx7yrecRr5BfKmFLNlPw3vIUOdiZwBJlw",
             authDomain: "eyvox-4049b.firebaseapp.com",
@@ -620,10 +616,14 @@
             auth = getAuth(app);
             db = getFirestore(app);
             
-            // Auto Login as Anonymous (Optional for future rules)
+            // Auto Login as Anonymous (CRITICAL for public view if Firebase rules require auth)
             signInAnonymously(auth).then(cred => { 
                 user = cred.user; 
-            }).catch(e => console.warn("Anonymous auth off, public view still works."));
+                initListeners(); // Start listening for data once connected
+            }).catch(e => {
+                console.warn("Anonymous auth off, public view still works if rules allow it.");
+                initListeners(); // Try to load anyway
+            });
         } catch(e) {
             console.error("Firebase init failed", e);
         }
@@ -753,26 +753,26 @@
             const encodedImages = encodeURIComponent(JSON.stringify(p.images || []));
             
             return `
-                <div class="border border-white/20 p-5 sm:p-8 md:p-[50px] mb-12 md:mb-[60px] last:mb-0 rounded-sm bg-[#0a0a0a]">
-                <div class="grid lg:grid-cols-12 gap-8 md:gap-[50px] h-full items-stretch">
-                    
-                    <!-- Image Section -->
-                    <div class="lg:col-span-9 relative bg-black group h-[40vh] sm:h-[50vh] lg:h-[550px] flex items-center justify-center overflow-hidden border border-white/5 rounded-sm" id="proj-img-container-${p.id}">
-                        ${hasImages ? `
-                            ${p.images.map((img, idx) => `
-                                    <img src="${img}" onerror="${onErrStr}" class="absolute inset-0 w-full h-full object-cover cursor-pointer transition-transform duration-700 hover:scale-[1.02] ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}" data-index="${idx}" onclick="window.openLightbox('${encodedImages}', ${idx})" />
-                                `).join('')}
-                                ${p.images.length > 1 ? `
-                                    <button onclick="window.slideProjectImage('${p.id}', -1)" class="absolute left-4 p-3 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
-                                    <button onclick="window.slideProjectImage('${p.id}', 1)" class="absolute right-4 p-3 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
-                                ` : ''}
-                            ` : `<div class="text-gray-500 uppercase tracking-widest text-sm">No Images</div>`}
-                    </div>
-                    
-                    <!-- Details Section (Adjusted Heights & Text Sizes) -->
-                    <div class="lg:col-span-3 flex flex-col justify-between h-full py-2">
-                        <div class="overflow-hidden">
-                            <!-- Title -->
+                <div class="border border-white/20 p-5 sm:p-8 lg:p-[50px] mb-12 lg:mb-[60px] last:mb-0 rounded-sm bg-[#0a0a0a]">
+                    <div class="grid lg:grid-cols-12 gap-8 lg:gap-[50px] h-full items-stretch">
+                        
+                        <!-- 75% Image Section (9 out of 12 columns) -->
+                        <div class="lg:col-span-9 relative bg-black group h-[40vh] sm:h-[50vh] lg:h-[550px] flex items-center justify-center overflow-hidden border border-white/5 rounded-sm" id="proj-img-container-${p.id}">
+                            ${hasImages ? `
+                                ${p.images.map((img, idx) => `
+                                        <img src="${img}" onerror="${onErrStr}" class="absolute inset-0 w-full h-full object-cover cursor-pointer transition-transform duration-700 hover:scale-[1.02] ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}" data-index="${idx}" onclick="window.openLightbox('${encodedImages}', ${idx})" />
+                                    `).join('')}
+                                    ${p.images.length > 1 ? `
+                                        <button onclick="window.slideProjectImage('${p.id}', -1)" class="absolute left-4 p-3 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+                                        <button onclick="window.slideProjectImage('${p.id}', 1)" class="absolute right-4 p-3 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+                                    ` : ''}
+                                ` : `<div class="text-gray-500 uppercase tracking-widest text-sm">No Images</div>`}
+                        </div>
+                        
+                        <!-- 25% Details Section (3 out of 12 columns) -->
+                        <div class="lg:col-span-3 flex flex-col justify-between h-full py-2">
+                            <div class="overflow-hidden">
+                                <!-- Title -->
                                 <h3 class="text-xl md:text-2xl font-bold tracking-widest uppercase mb-2 leading-tight">${p.title || p.location || 'Project'}</h3>
                                 <p class="text-accent text-xs tracking-widest uppercase mb-6 md:mb-8">${p.location || ''}</p>
                                 
@@ -792,12 +792,11 @@
                             <!-- Watch Video Button -->
                             ${p.youtubeUrl ? `
                                 <div class="mt-4 pt-2">
-                                    <button onclick="window.openVideo('${p.youtubeUrl}')" class="w-full sm:w-max flex items-center justify-center gap-3 bg-[#111] rounded-md py-3 px-6 cursor-pointer transition-all duration-300 hover:scale-[1.02] border border-white/20 hover:bg-[#1a1a1a] hover:border-white/40 shadow-md shadow-black/50 group">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="17" viewBox="0 0 28 20" class="flex-shrink-0 group-hover:scale-110 transition-transform">
-                                            <rect width="28" height="20" rx="5" fill="#ff0000"/>
-                                            <polygon points="11,5 19,10 11,15" fill="#ffffff"/>
+                                    <button onclick="window.openVideo('${p.youtubeUrl}')" class="flex items-center justify-center gap-2 bg-[#1a1a1a] border border-white/20 rounded-full hover:bg-white/10 transition-all py-2 px-5 w-max group shadow-md cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="red" class="group-hover:scale-110 transition-transform flex-shrink-0">
+                                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                                         </svg>
-                                        <span class="text-white font-semibold text-xs md:text-sm tracking-wider uppercase mt-0.5">Watch Video</span>
+                                        <span class="text-white font-bold text-xs tracking-widest uppercase">Watch Video</span>
                                     </button>
                                 </div>
                             ` : ''}
@@ -918,17 +917,58 @@
             slides.forEach((s, i) => s.className = `testimonial-slide absolute inset-0 flex flex-col items-center justify-center ${i === appState.testiCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`);
         };
 
-        window.handleContactSubmit = (e) => {
+        window.handleContactSubmit = async (e) => {
             e.preventDefault();
-            const name = document.getElementById('contact_name').value;
-            const phone = document.getElementById('contact_phone').value;
-            const loc = document.getElementById('contact_location').value;
-            const msg = document.getElementById('contact_message').value;
-            let wpMsg = `*New Consultation Request*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A`;
-            if(loc) wpMsg += `*Location & Size:* ${loc}%0A`;
-            wpMsg += `*Requirement:* ${msg}`;
-            window.open(`https://wa.me/919847700955?text=${wpMsg}`, '_blank');
-            e.target.reset();
+            
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = "Submitting...";
+            btn.disabled = true;
+
+            const name = document.getElementById('contact_name').value.trim();
+            const phone = document.getElementById('contact_phone').value.trim();
+            const place = document.getElementById('contact_place') ? document.getElementById('contact_place').value.trim() : '';
+            const roomSize = document.getElementById('contact_room_size') ? document.getElementById('contact_room_size').value.trim() : '';
+            const msg = document.getElementById('contact_message') ? document.getElementById('contact_message').value.trim() : '';
+            
+            const selectedOptions = [];
+            document.querySelectorAll('.contact-option:checked').forEach(cb => {
+                selectedOptions.push(cb.value);
+            });
+            const packageOpt = selectedOptions.join(', ');
+            
+            try {
+                if(db) {
+                    const reqRef = collection(db, 'artifacts', appId, 'public', 'data', 'consultations');
+                    await addDoc(reqRef, {
+                        name: name,
+                        phone: phone,
+                        place: place,
+                        roomSize: roomSize,
+                        package: packageOpt,
+                        message: msg,
+                        date: new Date().toLocaleString()
+                    });
+                }
+                
+                alert("താങ്കളുടെ മെസ്സേജ് വിജയകരമായി അയച്ചിരിക്കുന്നു! ഞങ്ങൾ ഉടൻ തന്നെ ബന്ധപ്പെടുന്നതാണ്.");
+                e.target.reset();
+                
+                let wpMsg = `*New Quotation Request*%0A%0A*Name:* ${name}%0A*Mobile:* ${phone}`;
+                if(place) wpMsg += `%0A*Place:* ${place}`;
+                if(roomSize) wpMsg += `%0A*Room Size:* ${roomSize}`;
+                if(packageOpt) wpMsg += `%0A*Options Selected:* ${packageOpt}`;
+                if(msg) wpMsg += `%0A*Requirements:* ${msg}`;
+                
+                window.open(`https://wa.me/919847700955?text=${wpMsg}`, '_blank');
+
+            } catch (error) {
+                console.error("Error saving request:", error);
+                alert("ക്ഷമിക്കണം, ഒരു തകരാറുണ്ടായി. ദയവായി നേരിട്ട് WhatsApp വഴി ബന്ധപ്പെടുക.");
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
         };
 
         window.openVideo = (url) => {
@@ -991,7 +1031,6 @@
         window.nextLightbox = (e) => { if(e) e.stopPropagation(); appState.lightbox.index = (appState.lightbox.index + 1) % appState.lightbox.items.length; updateLightboxUI(); };
         window.prevLightbox = (e) => { if(e) e.stopPropagation(); appState.lightbox.index = (appState.lightbox.index - 1 + appState.lightbox.items.length) % appState.lightbox.items.length; updateLightboxUI(); };
 
-        // Keyboard Navigation for Lightbox
         document.addEventListener('keydown', (e) => {
             const lb = document.getElementById('lightbox-modal');
             if(!lb.classList.contains('hidden')) {
@@ -1001,7 +1040,6 @@
             }
         });
 
-        // Touch Swipe Navigation for Lightbox
         let touchStartX = 0;
         let touchEndX = 0;
         const lightboxModal = document.getElementById('lightbox-modal');
@@ -1013,7 +1051,7 @@
         }, {passive: true});
 
         function initListeners() {
-            if(!db) return; // Removed !user check so public data loads instantly
+            if(!db) return; 
             const pRef = collection(db, 'artifacts', appId, 'public', 'data', 'projects');
             onSnapshot(pRef, snap => { appState.projects = snap.docs.map(d => ({id: d.id, ...d.data()})); updateUI(); if(appState.route === 'admin-dashboard') renderAdmin(); }, console.error);
             const gRef = collection(db, 'artifacts', appId, 'public', 'data', 'gallery');
@@ -1024,7 +1062,6 @@
             onSnapshot(iRef, snap => { appState.instagram = snap.docs.map(d => ({id: d.id, ...d.data()})); updateUI(); if(appState.route === 'admin-dashboard') renderAdmin(); }, console.error);
         }
 
-        // --- Google Sign-In Admin Auth ---
         const provider = new GoogleAuthProvider();
 
         window.handleGoogleAdminLogin = async () => {
@@ -1052,7 +1089,6 @@
             signInAnonymously(auth).then(cred => { user = cred.user; }).catch(console.error);
             window.navigate('home');
         };
-        // ----------------------------------
 
         window.setAdminTab = (tab) => {
             appState.adminTab = tab;
@@ -1064,7 +1100,6 @@
             renderAdmin();
         };
 
-        // Cloudinary Upload API With Error Alerts
         window.adminUpload = async (fileInput, field, index = null) => {
             const file = fileInput.files[0];
             if(!file) return;
@@ -1089,8 +1124,7 @@
                     return;
                 }
 
-                // Use the direct secure URL without dynamic transformations to prevent Cloudinary blocks
-                const optUrl = data.secure_url;
+                const optUrl = data.secure_url; // Removed the f_auto,q_auto to prevent blocks on restricted accounts
                 
                 if(index !== null) {
                     if(!appState.adminForm.data[field]) appState.adminForm.data[field] = [];
@@ -1123,12 +1157,10 @@
             }
             
             try {
-                // Remove empty slots from images array
                 if (appState.adminForm.data.images) {
                     appState.adminForm.data.images = appState.adminForm.data.images.filter(img => img && img.trim() !== '');
                 }
 
-                // Limit Home Page Featured Project to ONLY ONE
                 if (colName === 'projects' && appState.adminForm.data.featured) {
                     const otherFeatured = appState.projects.filter(p => p.featured && p.id !== appState.adminForm.editingId);
                     const batchPromises = otherFeatured.map(p => updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'projects', p.id), { featured: false }));
@@ -1148,7 +1180,7 @@
                 renderAdmin();
             } catch(e) {
                 console.error("Firebase Save Error:", e);
-                alert("Firebase Error: സേവ് ചെയ്യാൻ സാധിച്ചില്ല.\n" + e.message + "\n\nനിങ്ങളുടെ Firebase Console -> Firestore Database -> Rules എന്നതിൽ 'allow read, write: if true;' എന്ന് കൊടുത്തിട്ടുണ്ടോ എന്ന് പരിശോധിക്കുക.");
+                alert("Firebase Error: സേവ് ചെയ്യാൻ സാധിച്ചില്ല.\n" + e.message + "\n\nനിങ്ങളുടെ Firebase Console -> Firestore Database -> Rules എന്നതിൽ 'allow write: if request.auth != null;' എന്ന് കൊടുത്തിട്ടുണ്ടോ എന്ന് പരിശോധിക്കുക.");
             }
         };
 
@@ -1339,10 +1371,8 @@
             }
         }
 
-        // Initialize First Render
         window.onload = () => {
             renderStaticSections();
-            initListeners(); // Load data immediately on startup
             updateUI();
         };
     </script>
