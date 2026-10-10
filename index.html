@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyvox Global | Premium Home Theatre Manufacturing</title>
+    <meta name="description" content="Eyvox Global designs and manufactures premium home theatres, education theatres and custom cinema spaces in Kerala, India and international markets.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#D4AF37',
+                        bgDark: '#0a0a0a',
+                        bgLighter: '#151515'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --accent: #D4AF37;
+            --bg-dark: #0a0a0a;
+            --bg-lighter: #151515;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .ken-burns { animation: kenBurns 15s ease infinite alternate; }
+        @keyframes kenBurns {
+            0% { transform: scale(1.05); }
+            100% { transform: scale(1.15); }
+        }
+
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            background: var(--bg-lighter);
+            padding: 2rem 0;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .cinematic-overlay {
+            background: linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.8) 100%);
+        }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* FAQ Accordion */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        .faq-content.open {
+            max-height: 500px; /* Arbitrary large number */
+            opacity: 1;
+        }
+
+        /* Hero Slides */
+        .hero-slide { transition: opacity 2s ease-in-out; }
+        .testimonial-slide { transition: opacity 1s ease-in-out; }
+    </style>
+</head>
+<body class="selection:bg-accent selection:text-black flex flex-col min-h-screen">
+
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-6">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <img src="Company logo.png" alt="EYVOX GLOBAL" class="h-8 md:h-10 cursor-pointer filter brightness-0 invert" onclick="window.navigate('home')" />
+            
+            <nav class="hidden lg:flex items-center gap-10">
+                <button onclick="window.navigate('home')" class="nav-link uppercase tracking-widest text-sm transition-colors cursor-pointer text-accent font-bold" data-target="home">Home</button>
+                <button onclick="window.navigate('projects')" class="nav-link uppercase tracking-widest text-sm transition-colors cursor-pointer text-gray-300 hover:text-accent" data-target="projects">Projects</button>
+                <button onclick="window.navigate('gallery')" class="nav-link uppercase tracking-widest text-sm transition-colors cursor-pointer text-gray-300 hover:text-accent" data-target="gallery">Gallery</button>
+                <button onclick="window.navigate('contact')" class="nav-link uppercase tracking-widest text-sm transition-colors cursor-pointer text-gray-300 hover:text-accent" data-target="contact">Contact</button>
+                
+                <button onclick="window.open('https://wa.me/919847700955')" class="ml-4 px-6 py-3 text-xs uppercase tracking-[0.2em] font-semibold flex items-center gap-2 bg-green-600 border border-green-600 text-white hover:bg-white hover:text-green-600 hover:border-white transition-colors cursor-pointer">
+                    WhatsApp
+                </button>
+            </nav>
+
+            <button class="lg:hidden text-white cursor-pointer" onclick="document.getElementById('mobile-menu').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('mobile-menu').classList.add('opacity-100', 'pointer-events-auto');">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
+        <button class="absolute top-8 right-8 text-white cursor-pointer" onclick="document.getElementById('mobile-menu').classList.add('opacity-0', 'pointer-events-none'); document.getElementById('mobile-menu').classList.remove('opacity-100', 'pointer-events-auto');">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <div class="flex flex-col gap-8 text-center">
+            <button onclick="window.navigate('home'); document.getElementById('mobile-menu').click();" class="text-3xl uppercase tracking-widest font-light text-white hover:text-accent cursor-pointer">Home</button>
+            <button onclick="window.navigate('projects'); document.getElementById('mobile-menu').click();" class="text-3xl uppercase tracking-widest font-light text-white hover:text-accent cursor-pointer">Projects</button>
+            <button onclick="window.navigate('gallery'); document.getElementById('mobile-menu').click();" class="text-3xl uppercase tracking-widest font-light text-white hover:text-accent cursor-pointer">Gallery</button>
+            <button onclick="window.navigate('contact'); document.getElementById('mobile-menu').click();" class="text-3xl uppercase tracking-widest font-light text-white hover:text-accent cursor-pointer">Contact</button>
+            <div class="mt-8">
+                <button onclick="window.open('https://wa.me/919847700955')" class="px-8 py-4 text-sm uppercase tracking-[0.2em] font-semibold bg-green-600 text-white hover:bg-white hover:text-green-600 transition-colors cursor-pointer">
+                    WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <main class="flex-grow">
+        
+        <!-- PAGE: HOME -->
+        <div id="page-home" class="page-section block">
+            <!-- Hero Section -->
+            <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+                <div id="hero-slides">
+                    <div class="hero-slide absolute inset-0 opacity-100 z-10">
+                        <img src="eyvoxglobal-head01.jpg" alt="Home Cinema 1" class="w-full h-full object-cover ken-burns" />
+                        <div class="absolute inset-0 cinematic-overlay"></div>
+                    </div>
+                    <div class="hero-slide absolute inset-0 opacity-0 z-0">
+                        <img src="eyvoxglobal-head02.jpg" alt="Home Cinema 2" class="w-full h-full object-cover ken-burns" />
+                        <div class="absolute inset-0 cinematic-overlay"></div>
+                    </div>
+                    <div class="hero-slide absolute inset-0 opacity-0 z-0">
+                        <img src="eyvoxglobal-head03.jpg" alt="Home Cinema 3" class="w-full h-full object-cover ken-burns" />
+                        <div class="absolute inset-0 cinematic-overlay"></div>
+                    </div>
+                    <div class="hero-slide absolute inset-0 opacity-0 z-0">
+                        <img src="eyvoxglobal-head04.jpg" alt="Home Cinema 4" class="w-full h-full object-cover ken-burns" />
+                        <div class="absolute inset-0 cinematic-overlay"></div>
+                    </div>
+                </div>
+                
+                <div class="relative z-20 text-center px-4 max-w-5xl mx-auto mt-20">
+                    <div class="reveal">
+                        <img src="Company logo.png" alt="EYVOX GLOBAL" class="h-16 md:h-24 mx-auto mb-8 filter drop-shadow-2xl brightness-0 invert opacity-90" />
+                    </div>
+                    <div class="reveal" style="transition-delay: 200ms;">
+                        <h1 class="text-4xl md:text-7xl font-light tracking-[0.15em] mb-6 leading-tight shadow-black drop-shadow-xl uppercase">
+                            We Build Your <br/><span class="font-bold">Private Cinema</span>
+                        </h1>
+                    </div>
+                    <div class="reveal" style="transition-delay: 400ms;">
+                        <p class="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed drop-shadow-md">
+                            From concept to completion, Eyvox Global designs and manufactures premium home theatres, education theatres and custom cinema spaces.
+                        </p>
+                    </div>
+                    <div class="reveal flex flex-col sm:flex-row justify-center gap-4" style="transition-delay: 600ms;">
+                        <button onclick="window.navigate('projects')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-accent text-black hover:bg-white cursor-pointer">View Projects</button>
+                        <button onclick="window.navigate('contact')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 border border-white/30 hover:border-accent hover:text-accent backdrop-blur-sm cursor-pointer">Get A Quote</button>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-10 left-0 right-0 z-20 flex justify-center gap-3" id="hero-indicators">
+                    <button class="h-1 transition-all duration-500 cursor-pointer w-8 bg-accent" onclick="window.setHeroSlide(0)"></button>
+                    <button class="h-1 transition-all duration-500 cursor-pointer w-4 bg-white/30" onclick="window.setHeroSlide(1)"></button>
+                    <button class="h-1 transition-all duration-500 cursor-pointer w-4 bg-white/30" onclick="window.setHeroSlide(2)"></button>
+                    <button class="h-1 transition-all duration-500 cursor-pointer w-4 bg-white/30" onclick="window.setHeroSlide(3)"></button>
+                </div>
+            </section>
+
+            <!-- Marquee -->
+            <div class="marquee-container">
+                <div class="marquee-content" id="marquee-content">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <div class="mb-16">
+                            <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Who We Are</p>
+                            <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">About Eyvox Global</h2>
+                            <div class="h-px w-24 bg-accent mt-6 opacity-50"></div>
+                        </div>
+                        <div class="text-gray-400 font-light leading-relaxed space-y-6">
+                            <p>Eyvox Global is a team of well-skilled and experienced professionals, with 10+ members specializing in different areas of theatre installation.</p>
+                            <p>With more than 12 years of experience in the home theatre field, we create professionally designed and engineered entertainment spaces. We also undertake Education Theatre projects for schools and colleges, as well as rooftop theatre projects.</p>
+                            <p>Our experience extends beyond India, with projects and professional work carried out in the UAE, Qatar, Kuwait and Saudi Arabia.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="reveal bg-[#111] p-8 text-center border border-white/5 hover:border-accent/30 transition-colors">
+                            <div class="text-4xl md:text-5xl text-accent font-light mb-2">12+</div>
+                            <div class="text-xs uppercase tracking-widest text-gray-500">Years Experience</div>
+                        </div>
+                        <div class="reveal bg-[#111] p-8 text-center border border-white/5 hover:border-accent/30 transition-colors" style="transition-delay: 100ms;">
+                            <div class="text-4xl md:text-5xl text-accent font-light mb-2">10+</div>
+                            <div class="text-xs uppercase tracking-widest text-gray-500">Specialists</div>
+                        </div>
+                        <div class="reveal bg-[#111] p-8 text-center border border-white/5 hover:border-accent/30 transition-colors" style="transition-delay: 200ms;">
+                            <div class="text-4xl md:text-5xl text-accent font-light mb-2">5+</div>
+                            <div class="text-xs uppercase tracking-widest text-gray-500">Countries</div>
+                        </div>
+                        <div class="reveal bg-[#111] p-8 text-center border border-white/5 hover:border-accent/30 transition-colors" style="transition-delay: 300ms;">
+                            <div class="text-4xl md:text-5xl text-accent font-light mb-2">100+</div>
+                            <div class="text-xs uppercase tracking-widest text-gray-500">Custom Cinemas</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section class="py-24 bg-[#111] px-6 md:px-12">
+                <div class="max-w-7xl mx-auto">
+                    <div class="reveal text-center mb-16">
+                        <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">What We Do</p>
+                        <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Our Expertise</h2>
+                        <div class="h-px w-24 bg-accent mt-6 opacity-50 mx-auto"></div>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16" id="services-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Projects Section -->
+            <section class="py-24 px-6 md:px-12 max-w-[1600px] mx-auto">
+                <div class="reveal mb-16">
+                    <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Portfolio</p>
+                    <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Featured Projects</h2>
+                    <div class="h-px w-24 bg-accent mt-6 opacity-50"></div>
+                </div>
+                <div id="home-featured-projects" class="mt-16">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="mt-16 text-center">
+                    <button onclick="window.navigate('projects')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-accent text-black hover:bg-white cursor-pointer">View All Projects</button>
+                </div>
+            </section>
+
+            <!-- Process Section -->
+            <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-[#0a0a0a]">
+                <div class="reveal text-center mb-16">
+                    <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Methodology</p>
+                    <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">From Concept to Cinema</h2>
+                    <div class="h-px w-24 bg-accent mt-6 opacity-50 mx-auto"></div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-16 relative">
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-white/10 -z-10 transform -translate-y-1/2"></div>
+                    
+                    <div class="reveal flex md:flex-col items-center gap-6 md:gap-4 mb-8 md:mb-0 w-full md:w-auto">
+                        <div class="w-16 h-16 rounded-full bg-black border-2 border-accent flex items-center justify-center text-xl text-accent font-bold shadow-lg shadow-accent/10">01</div>
+                        <div class="text-lg tracking-widest uppercase md:text-center text-gray-300 font-light">Consultation</div>
+                    </div>
+                    <div class="reveal flex md:flex-col items-center gap-6 md:gap-4 mb-8 md:mb-0 w-full md:w-auto" style="transition-delay: 150ms;">
+                        <div class="w-16 h-16 rounded-full bg-black border-2 border-accent flex items-center justify-center text-xl text-accent font-bold shadow-lg shadow-accent/10">02</div>
+                        <div class="text-lg tracking-widest uppercase md:text-center text-gray-300 font-light">Design</div>
+                    </div>
+                    <div class="reveal flex md:flex-col items-center gap-6 md:gap-4 mb-8 md:mb-0 w-full md:w-auto" style="transition-delay: 300ms;">
+                        <div class="w-16 h-16 rounded-full bg-black border-2 border-accent flex items-center justify-center text-xl text-accent font-bold shadow-lg shadow-accent/10">03</div>
+                        <div class="text-lg tracking-widest uppercase md:text-center text-gray-300 font-light">Manufacturing</div>
+                    </div>
+                    <div class="reveal flex md:flex-col items-center gap-6 md:gap-4 mb-8 md:mb-0 w-full md:w-auto" style="transition-delay: 450ms;">
+                        <div class="w-16 h-16 rounded-full bg-black border-2 border-accent flex items-center justify-center text-xl text-accent font-bold shadow-lg shadow-accent/10">04</div>
+                        <div class="text-lg tracking-widest uppercase md:text-center text-gray-300 font-light">Installation</div>
+                    </div>
+                    <div class="reveal flex md:flex-col items-center gap-6 md:gap-4 mb-8 md:mb-0 w-full md:w-auto" style="transition-delay: 600ms;">
+                        <div class="w-16 h-16 rounded-full bg-black border-2 border-accent flex items-center justify-center text-xl text-accent font-bold shadow-lg shadow-accent/10">05</div>
+                        <div class="text-lg tracking-widest uppercase md:text-center text-gray-300 font-light">Handover</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Preview -->
+            <section class="py-24 bg-[#0a0a0a] px-6 md:px-12 border-t border-white/5">
+                <div class="max-w-7xl mx-auto">
+                    <div class="reveal text-center mb-16">
+                        <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Visuals</p>
+                        <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Our Gallery</h2>
+                        <div class="h-px w-24 bg-accent mt-6 opacity-50 mx-auto"></div>
+                    </div>
+                    <div id="home-gallery-grid" class="columns-1 sm:columns-2 lg:columns-4 gap-4 space-y-4 mt-16">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="mt-16 text-center">
+                        <button onclick="window.navigate('gallery')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-accent text-black hover:bg-white cursor-pointer">View Full Gallery</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology Section -->
+            <section class="py-0 flex flex-col lg:flex-row bg-[#111] border-t border-b border-white/5">
+                <div class="lg:w-1/2 h-[50vh] lg:h-auto relative overflow-hidden">
+                    <img src="eyvoxglobal-projector.jpg" alt="Cinema Technology" class="w-full h-full object-cover opacity-70 transition-transform duration-1000 hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+                </div>
+                <div class="lg:w-1/2 p-12 lg:p-24 flex items-center">
+                    <div class="reveal">
+                        <div class="mb-16">
+                            <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Equipment</p>
+                            <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Cinema Technology</h2>
+                            <div class="h-px w-24 bg-accent mt-6 opacity-50"></div>
+                        </div>
+                        <ul class="space-y-6">
+                            <li class="flex items-center gap-4 text-gray-300 font-light text-lg tracking-wide hover:text-white transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent shadow-[0_0_10px_rgba(212,175,55,0.5)]"></span>4K Laser & 8K Projection
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-300 font-light text-lg tracking-wide hover:text-white transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent shadow-[0_0_10px_rgba(212,175,55,0.5)]"></span>Dolby Atmos Surround
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-300 font-light text-lg tracking-wide hover:text-white transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent shadow-[0_0_10px_rgba(212,175,55,0.5)]"></span>Acoustic Transparent Screens
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-300 font-light text-lg tracking-wide hover:text-white transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent shadow-[0_0_10px_rgba(212,175,55,0.5)]"></span>High-End AV Receivers
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-300 font-light text-lg tracking-wide hover:text-white transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent shadow-[0_0_10px_rgba(212,175,55,0.5)]"></span>Cinema Grade Speakers
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-300 font-light text-lg tracking-wide hover:text-white transition-colors">
+                                <span class="w-2 h-2 rounded-full bg-accent shadow-[0_0_10px_rgba(212,175,55,0.5)]"></span>Smart Automation Systems
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="py-24 bg-[#0a0a0a] px-6 md:px-12 border-t border-white/5">
+                <div class="max-w-4xl mx-auto text-center relative">
+                    <div class="reveal mb-16">
+                        <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Reviews</p>
+                        <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">What Our Clients Say</h2>
+                        <div class="h-px w-24 bg-accent mt-6 opacity-50 mx-auto"></div>
+                    </div>
+                    
+                    <div id="testimonials-container" class="mt-16 relative min-h-[350px] flex items-center justify-center">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="py-24 px-6 md:px-12 max-w-4xl mx-auto">
+                <div class="reveal text-center mb-16">
+                    <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Information</p>
+                    <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">FAQ</h2>
+                    <div class="h-px w-24 bg-accent mt-6 opacity-50 mx-auto"></div>
+                </div>
+                <div class="mt-12 space-y-4" id="faq-container">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section class="py-32 text-center bg-gradient-to-b from-[#111] to-black px-6 border-t border-white/5">
+                <h2 class="text-4xl md:text-5xl uppercase tracking-widest font-light mb-6">Get Your Theatre Designed</h2>
+                <p class="text-gray-400 font-light max-w-2xl mx-auto mb-10 text-lg">Tell us about your room and let our team create a cinema designed around your space, sound and vision.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="window.navigate('contact')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-accent text-black hover:bg-white cursor-pointer">Contact Now</button>
+                    <button onclick="window.open('https://wa.me/919847700955')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 border border-white/30 hover:border-accent hover:text-accent backdrop-blur-sm cursor-pointer">WhatsApp Us</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE: PROJECTS -->
+        <div id="page-projects" class="page-section hidden pt-32 pb-24 px-6 md:px-12 max-w-[1600px] mx-auto min-h-screen">
+            <div class="mb-16">
+                <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Portfolio</p>
+                <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Our Projects</h2>
+                <div class="h-px w-24 bg-accent mt-6 opacity-50"></div>
+            </div>
+            <div id="all-projects-container" class="mt-20">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- PAGE: GALLERY -->
+        <div id="page-gallery" class="page-section hidden pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
+            <div class="mb-16">
+                <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Visuals</p>
+                <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Theatre Gallery</h2>
+                <div class="h-px w-24 bg-accent mt-6 opacity-50"></div>
+            </div>
+            <div id="full-gallery-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 mt-12">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- PAGE: CONTACT -->
+        <div id="page-contact" class="page-section hidden pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <div class="mb-16">
+                        <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Get in Touch</p>
+                        <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Contact Us</h2>
+                        <div class="h-px w-24 bg-accent mt-6 opacity-50"></div>
+                    </div>
+                    <div class="space-y-8 mt-12 text-gray-300 font-light">
+                        <div>
+                            <h4 class="text-accent uppercase tracking-widest text-xs mb-2 font-bold">Address</h4>
+                            <p>Door No. 216-B, Parangattu Building<br/>Kappumthala P.O., Muttuchira<br/>Kottayam, Kerala – 686613, India</p>
+                        </div>
+                        <div>
+                            <h4 class="text-accent uppercase tracking-widest text-xs mb-2 font-bold">Direct Lines</h4>
+                            <p>Phone: +91 6282962116<br/>WhatsApp: +91 9847700955</p>
+                        </div>
+                        <div>
+                            <h4 class="text-accent uppercase tracking-widest text-xs mb-2 font-bold">Email</h4>
+                            <p>eyvoxglobal@gmail.com</p>
+                        </div>
+                        <div class="flex gap-4 pt-6">
+                            <button onclick="window.open('tel:6282962116')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-accent text-black hover:bg-white cursor-pointer">Call Now</button>
+                            <button onclick="window.open('https://wa.me/919847700955')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 border border-white/30 hover:border-accent hover:text-accent backdrop-blur-sm cursor-pointer">WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 200ms;">
+                    <div class="bg-[#111] p-8 md:p-12 border border-white/5 mt-12 md:mt-0">
+                        <h3 class="text-2xl uppercase tracking-widest mb-8">Request Consultation</h3>
+                        <form onsubmit="window.handleContactSubmit(event)" class="space-y-6">
+                            <input required id="contact_name" type="text" placeholder="Name" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
+                            <input required id="contact_phone" type="tel" placeholder="Phone Number" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
+                            <input id="contact_location" type="text" placeholder="Location & Room Size" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light" />
+                            <textarea required id="contact_message" placeholder="Tell us about your requirement..." rows="4" class="w-full bg-[#0a0a0a] border border-white/10 p-4 text-white focus:outline-none focus:border-accent font-light resize-none"></textarea>
+                            <button type="submit" class="w-full flex items-center justify-center gap-2 px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-green-600 text-white hover:bg-white hover:text-green-600 cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                                Send via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: ADMIN LOGIN -->
+        <div id="page-admin-login" class="page-section hidden h-screen flex items-center justify-center bg-black">
+            <form onsubmit="window.handleAdminLogin(event)" class="bg-[#111] p-12 border border-white/10 w-96 space-y-6 shadow-2xl">
+                <h2 class="text-2xl text-center uppercase tracking-widest text-accent mb-8">Admin Login</h2>
+                <input type="text" id="admin_user" placeholder="Username" class="w-full bg-[#0a0a0a] p-3 text-white border border-white/10 focus:border-accent outline-none" />
+                <input type="password" id="admin_pass" placeholder="Password" class="w-full bg-[#0a0a0a] p-3 text-white border border-white/10 focus:border-accent outline-none" />
+                <button type="submit" class="w-full px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-accent text-black hover:bg-white cursor-pointer">Login</button>
+                <p id="admin_error" class="text-red-500 text-xs text-center hidden">Invalid credentials</p>
+            </form>
+        </div>
+
+        <!-- PAGE: ADMIN DASHBOARD -->
+        <div id="page-admin-dashboard" class="page-section hidden min-h-screen bg-[#0a0a0a] pt-24 px-6 md:px-12 pb-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-center mb-12 border-b border-white/10 pb-6 overflow-x-auto no-scrollbar">
+                    <h1 class="text-3xl uppercase tracking-widest text-accent flex-shrink-0 mr-8">Admin Dashboard</h1>
+                    <div class="flex space-x-6 flex-shrink-0" id="admin-tabs">
+                        <button onclick="window.setAdminTab('projects')" class="admin-tab uppercase tracking-wider text-sm pb-2 transition-colors border-b-2 border-accent text-white font-bold" data-tab="projects">Projects</button>
+                        <button onclick="window.setAdminTab('gallery')" class="admin-tab uppercase tracking-wider text-sm pb-2 transition-colors text-gray-500 hover:text-white" data-tab="gallery">Gallery</button>
+                        <button onclick="window.setAdminTab('testimonials')" class="admin-tab uppercase tracking-wider text-sm pb-2 transition-colors text-gray-500 hover:text-white" data-tab="testimonials">Testimonials</button>
+                        <button onclick="window.setAdminTab('instagram')" class="admin-tab uppercase tracking-wider text-sm pb-2 transition-colors text-gray-500 hover:text-white" data-tab="instagram">Instagram</button>
+                        <button onclick="window.adminLogout()" class="uppercase tracking-wider text-sm pb-2 transition-colors text-red-500 hover:text-red-400">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Admin Dynamic Area -->
+                <div id="admin-content-area"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Instagram Section (Global before footer) -->
+    <section id="global-instagram-section" class="py-24 bg-black px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="reveal mb-16">
+                <p class="text-accent uppercase tracking-[0.3em] text-xs font-bold mb-4">Instagram</p>
+                <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Follow Our Work</h2>
+                <div class="h-px w-24 bg-accent mt-6 opacity-50 mx-auto"></div>
+            </div>
+            <div id="instagram-grid-container">
+                <!-- Populated by JS -->
+            </div>
+            <div class="mt-12 flex justify-center">
+                <button onclick="window.open('https://www.instagram.com/eyvox_global', '_blank')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 border border-white/30 hover:border-accent hover:text-accent backdrop-blur-sm cursor-pointer">
+                    FOLLOW @EYVOX_GLOBAL
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#050505] pt-20 pb-10 px-6 md:px-12 relative z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-1 flex flex-col items-start">
+                <div class="flex flex-col items-start mb-6">
+                    <img src="Company logo.png" alt="EYVOX GLOBAL" class="h-8 filter brightness-0 invert opacity-70 hover:opacity-100 transition-opacity cursor-pointer mb-6" onclick="window.navigate('home')" />
+                    <div class="flex gap-6 text-xs text-accent uppercase tracking-widest">
+                        <a href="https://www.instagram.com/eyvox_global" target="_blank" rel="noreferrer" class="hover:text-white transition-colors cursor-pointer">Instagram</a>
+                        <a href="https://www.youtube.com/@Eyvoxglobal" target="_blank" rel="noreferrer" class="hover:text-white transition-colors cursor-pointer">YouTube</a>
+                        <a href="https://www.facebook.com/eyvoxglobal" target="_blank" rel="noreferrer" class="hover:text-white transition-colors cursor-pointer">Facebook</a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed font-light">Premium home theatre design and manufacturing company. Creating unparalleled cinematic experiences.</p>
+            </div>
+            <div>
+                <h4 class="text-white uppercase tracking-widest text-sm mb-6 font-bold">Quick Links</h4>
+                <ul class="space-y-3 text-gray-500 text-sm">
+                    <li><button onclick="window.navigate('home')" class="hover:text-accent transition-colors cursor-pointer">Home</button></li>
+                    <li><button onclick="window.navigate('projects')" class="hover:text-accent transition-colors cursor-pointer">Projects</button></li>
+                    <li><button onclick="window.navigate('gallery')" class="hover:text-accent transition-colors cursor-pointer">Gallery</button></li>
+                    <li><button onclick="window.navigate('contact')" class="hover:text-accent transition-colors cursor-pointer">Contact</button></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2">
+                <h4 class="text-white uppercase tracking-widest text-sm mb-6 font-bold">Contact Info</h4>
+                <ul class="space-y-3 text-gray-500 text-sm font-light">
+                    <li>Door No. 216-B, Parangattu Building, Kappumthala P.O., Muttuchira, Kottayam, Kerala – 686613, India</li>
+                    <li>Phone: +91 6282962116 | WhatsApp: +91 9847700955</li>
+                    <li>Email: eyvoxglobal@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+            <p id="copyright-text">© 2026 EYVOX GLOBAL. ALL RIGHTS RESERVED.</p>
+            <button onclick="window.navigate('admin-login')" class="hover:text-accent mt-4 md:mt-0 transition-colors cursor-pointer">Login</button>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[70] bg-black/95 items-center justify-center p-4 backdrop-blur-sm hidden">
+        <button onclick="window.closeVideoModal()" class="absolute top-6 right-6 text-white hover:text-accent transition-colors z-10 p-2 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <div class="w-full max-w-5xl aspect-video bg-black relative shadow-2xl shadow-accent/10 border border-white/5" id="video-container"></div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[70] bg-black/95 items-center justify-center p-4 backdrop-blur-sm hidden">
+        <button onclick="window.closeLightbox()" class="absolute top-6 right-6 text-white hover:text-accent transition-colors z-20 p-2 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <button onclick="window.prevLightbox()" class="absolute left-2 md:left-6 text-white hover:text-accent transition-colors z-20 p-4 cursor-pointer" id="lightbox-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        
+        <div class="w-full h-full max-h-[90vh] flex flex-col items-center justify-center relative">
+            <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain select-none transition-opacity duration-300" />
+            <div id="lightbox-title-container" class="absolute bottom-10 left-0 right-0 text-center hidden">
+                <span id="lightbox-title" class="bg-black/80 px-6 py-2 text-white tracking-widest uppercase text-sm border border-white/10 shadow-lg shadow-black/50"></span>
+            </div>
+        </div>
+
+        <button onclick="window.nextLightbox()" class="absolute right-2 md:right-6 text-white hover:text-accent transition-colors z-20 p-4 cursor-pointer" id="lightbox-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div id="lightbox-counter" class="absolute bottom-6 left-0 right-0 text-center tracking-widest text-xs text-white/50 z-20"></div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, addDoc, updateDoc, deleteDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "mock-key", authDomain: "mock-domain", projectId: "mock-project", 
+            storageBucket: "mock-bucket", messagingSenderId: "mock-sender", appId: "mock-appid"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'eyvox-global-default';
+
+        let app, auth, db, user;
+        
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            signInAnonymously(auth).then(cred => { user = cred.user; initListeners(); }).catch(console.error);
+        } catch(e) {
+            console.log("Firebase not configured for live env. Running in local mode.");
+        }
+
+        // Configuration
+        const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/zo4glrb3/image/upload";
+        const UPLOAD_PRESET = "eyvoxglobal";
+        
+        // App State
+        window.appState = {
+            route: 'home',
+            adminTab: 'projects',
+            projects: [],
+            gallery: [],
+            testimonials: [],
+            instagram: [],
+            heroCurrent: 0,
+            testiCurrent: 0,
+            lightbox: { items: [], index: 0 },
+            adminForm: { editingId: null, data: {} }
+        };
+
+        // Fallback Data
+        const FALLBACK_PROJECTS = [
+            { id: 'p1', title: "The Director's Cut", location: 'Kochi', roomSize: '20ft x 15ft', screenSize: '135"', projector: 'Sony 4K Laser', audio: 'Dolby Atmos 7.2.4', budget: 'Premium', description: 'A dedicated, reference-grade private cinema built from the ground up.', images: ['Eyvox_HT_LH (3).jpg', 'Eyvox_HT_LH (5).jpeg', 'Eyvox_HT_PH (1).png'], featured: true },
+            { id: 'p2', title: "Acoustic Elegance", location: 'Trivandrum', roomSize: '18ft x 14ft', screenSize: '120"', projector: 'Epson Pro Cinema', audio: '5.1.2 Surround', budget: 'Standard', description: 'An elegant integration of high-performance cinema technology.', images: ['Eyvox_HT_PH (1).png', 'Eyvox_HT_PH (4).jpeg'], featured: true }
+        ];
+
+        const SERVICES = [
+            { title: 'Home Theatre Design', desc: 'Custom cinema design based on room dimensions, viewing distance, acoustics.', icon: '🎬' },
+            { title: 'Theatre Manufacturing', desc: 'Custom manufacturing of theatre interiors, acoustic structures.', icon: '🛠' },
+            { title: 'Dolby Atmos & Audio', desc: 'Immersive surround sound systems designed for cinematic performance.', icon: '🔊' },
+            { title: '4K / 8K Projection', desc: 'Professional high-resolution and laser projection solutions.', icon: '📽' },
+            { title: 'Acoustic Treatment', desc: 'Professional acoustic treatment, isolation, absorption.', icon: '🎵' },
+            { title: 'Lighting & Automation', desc: 'Cinema lighting, automation and smart control solutions.', icon: '💡' }
+        ];
+
+        const FAQS = [
+            { q: "How much does a home theatre cost?", a: "Costs vary widely based on room size, equipment choices, and acoustics. We offer custom solutions ranging from standard to ultra-luxury." },
+            { q: "How much room space is required?", a: "A dedicated room of at least 150 sq ft is ideal, but we can design optimized solutions for smaller spaces." },
+            { q: "Can you build a theatre in an existing room?", a: "Yes, we specialize in retrofitting existing spaces with custom acoustic treatments." },
+            { q: "Do you provide complete turnkey installation?", a: "Absolutely. From initial 3D design to civil work, interior finishing, and final calibration." },
+            { q: "How long does installation take?", a: "A typical custom theatre takes 3 to 6 weeks depending on complexity." }
+        ];
+
+        const BRAND_LOGOS = ['BenQ', 'Epson', 'Sony', 'JVC', 'Denon', 'Yamaha', 'JBL', 'Polk Audio', 'SVS', 'Klipsch', 'Dolby'];
+
+        document.getElementById('copyright-text').textContent = `© ${new Date().getFullYear()} EYVOX GLOBAL. ALL RIGHTS RESERVED.`;
+
+        function initScrollReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.reveal:not(.active)').forEach(el => observer.observe(el));
+        }
+
+        window.navigate = (route) => {
+            appState.route = route;
+            document.querySelectorAll('.page-section').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('block'));
+            
+            const target = document.getElementById(`page-${route}`);
+            if(target) {
+                target.classList.remove('hidden');
+                target.classList.add('block');
+            }
+
+            // Update Nav Links
+            document.querySelectorAll('.nav-link').forEach(el => {
+                if(el.getAttribute('data-target') === route) {
+                    el.classList.add('text-accent', 'font-bold');
+                    el.classList.remove('text-gray-300');
+                } else {
+                    el.classList.remove('text-accent', 'font-bold');
+                    el.classList.add('text-gray-300');
+                }
+            });
+
+            // Toggle Global Sections based on route
+            const instaGlobal = document.getElementById('global-instagram-section');
+            if(route === 'admin-login' || route === 'admin-dashboard') {
+                instaGlobal.classList.add('hidden');
+            } else {
+                instaGlobal.classList.remove('hidden');
+            }
+
+            window.scrollTo(0,0);
+            initScrollReveal();
+        };
+
+        // Scroll styling
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 50) {
+                nav.classList.add('bg-black/90', 'backdrop-blur-md', 'shadow-2xl', 'border-b', 'border-white/5');
+            } else {
+                nav.classList.remove('bg-black/90', 'backdrop-blur-md', 'shadow-2xl', 'border-b', 'border-white/5');
+            }
+        });
+
+        function renderStaticSections() {
+            // Marquee
+            document.getElementById('marquee-content').innerHTML = [...BRAND_LOGOS, ...BRAND_LOGOS].map(b => 
+                `<div class="mx-12 text-xl tracking-[0.2em] font-light text-gray-500 uppercase flex-shrink-0">${b}</div>`
+            ).join('');
+
+            // Services
+            document.getElementById('services-grid').innerHTML = SERVICES.map((svc, i) => `
+                <div class="reveal p-8 border border-white/5 bg-[#0a0a0a] hover:-translate-y-2 transition-transform duration-500 group" style="transition-delay: ${i*100}ms">
+                    <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">${svc.icon}</div>
+                    <h3 class="text-xl tracking-wider uppercase mb-4 text-white group-hover:text-accent transition-colors">${svc.title}</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">${svc.desc}</p>
+                </div>
+            `).join('');
+
+            // FAQ
+            document.getElementById('faq-container').innerHTML = FAQS.map((faq, i) => `
+                <div class="reveal border border-white/10 bg-[#111]" style="transition-delay: ${i*100}ms">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center text-lg tracking-wide focus:outline-none cursor-pointer hover:text-accent transition-colors" onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('svg').classList.toggle('rotate-45'); this.querySelector('svg').classList.toggle('text-accent');">
+                        <span>${faq.q}</span>
+                        <span class="transform transition-transform duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg></span>
+                    </button>
+                    <div class="faq-content">
+                        <p class="p-6 pt-0 text-gray-400 font-light leading-relaxed">${faq.a}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // UI Builder Helpers
+        function buildProjectCard(p, isFeatured) {
+            const hasImages = p.images && p.images.length > 0;
+            const encodedImages = encodeURIComponent(JSON.stringify(p.images || []));
+            return `
+                <div class="grid md:grid-cols-5 gap-8 lg:gap-12 mb-32 border-b border-white/10 pb-16 last:border-0 last:mb-0 last:pb-0">
+                    <div class="md:col-span-4 relative bg-black group h-[60vh] md:h-[80vh] flex items-center justify-center border border-white/5 overflow-hidden" id="proj-img-container-${p.id}">
+                        ${hasImages ? `
+                            ${p.images.map((img, idx) => `
+                                <img src="${img}" class="absolute inset-0 w-full h-full object-contain cursor-pointer transition-transform duration-700 hover:scale-[1.02] ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}" data-index="${idx}" onclick="window.openLightbox('${encodedImages}', ${idx})" />
+                            `).join('')}
+                            ${p.images.length > 1 ? `
+                                <button onclick="window.slideProjectImage('${p.id}', -1)" class="absolute left-4 p-4 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+                                <button onclick="window.slideProjectImage('${p.id}', 1)" class="absolute right-4 p-4 bg-black/60 text-white hover:bg-accent hover:text-black transition-all rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 z-20 border border-white/10 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+                            ` : ''}
+                        ` : `<div class="text-gray-500 uppercase tracking-widest text-sm">No Images</div>`}
+                    </div>
+                    <div class="md:col-span-1 flex flex-col justify-center">
+                        <h3 class="text-3xl tracking-widest uppercase mb-2 leading-tight">${p.title || p.location}</h3>
+                        <p class="text-accent text-xs tracking-widest uppercase mb-8">${p.location || ''}</p>
+                        <div class="space-y-5 text-sm font-light mb-8 text-gray-300">
+                            ${p.roomSize ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Room Size</span>${p.roomSize}</div>` : ''}
+                            ${p.screenSize ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Screen</span>${p.screenSize}</div>` : ''}
+                            ${p.projector ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Projector</span>${p.projector}</div>` : ''}
+                            ${p.audio ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Sound</span>${p.audio}</div>` : ''}
+                            ${p.budget ? `<div><span class="text-gray-500 uppercase tracking-widest text-xs block mb-1">Budget</span>${p.budget}</div>` : ''}
+                        </div>
+                        ${p.description ? `<p class="text-gray-400 font-light text-sm leading-relaxed mb-8 border-t border-white/10 pt-6">${p.description}</p>` : ''}
+                        ${p.youtubeUrl ? `<button onclick="window.openVideo('${p.youtubeUrl}')" class="w-full flex items-center justify-center gap-3 bg-white/5 border border-white/20 hover:border-accent hover:bg-accent hover:text-black py-4 text-xs mt-auto cursor-pointer transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> WATCH VIDEO</button>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        window.slideProjectImage = (projId, dir) => {
+            const container = document.getElementById(`proj-img-container-${projId}`);
+            if(!container) return;
+            const imgs = Array.from(container.querySelectorAll('img[data-index]'));
+            if(imgs.length < 2) return;
+            
+            let currentIdx = imgs.findIndex(img => img.classList.contains('opacity-100'));
+            if(currentIdx === -1) currentIdx = 0;
+            
+            let nextIdx = (currentIdx + dir + imgs.length) % imgs.length;
+            
+            imgs[currentIdx].classList.replace('opacity-100', 'opacity-0');
+            imgs[currentIdx].classList.replace('z-10', 'z-0');
+            imgs[nextIdx].classList.replace('opacity-0', 'opacity-100');
+            imgs[nextIdx].classList.replace('z-0', 'z-10');
+        };
+
+        function updateUI() {
+            const projs = appState.projects.length > 0 ? appState.projects : FALLBACK_PROJECTS;
+            const featured = projs.filter(p => p.featured).slice(0, 3);
+            
+            // Featured Projects
+            const featHtml = featured.map((p,i) => `<div class="reveal" style="transition-delay: ${i*100}ms">${buildProjectCard(p, true)}</div>`).join('');
+            document.getElementById('home-featured-projects').innerHTML = featHtml || '<p class="text-gray-500 italic">No featured projects yet.</p>';
+
+            // All Projects
+            document.getElementById('all-projects-container').innerHTML = projs.map((p,i) => `<div class="reveal" style="transition-delay: ${i*50}ms">${buildProjectCard(p, false)}</div>`).join('');
+
+            // Gallery
+            const galImages = appState.gallery.length > 0 ? appState.gallery : [
+                {image: "eyvoxglobal-head01.jpg", heading: "Luxury Private Cinema"}, {image: "eyvoxglobal-head02.jpg", heading: "Acoustic Elegance"},
+                {image: "eyvoxglobal-head03.jpg", heading: "Minimalist Theatre"}, {image: "eyvoxglobal-head04.jpg", heading: "Large Screen Format"},
+                {image: "Eyvox_HT_LH (3).jpg", heading: "Premium Seating"}, {image: "Eyvox_HT_LH (5).jpeg", heading: "Custom Audio"},
+                {image: "Eyvox_HT_PH (1).png", heading: "Front Row Experience"}, {image: "Eyvox_HT_PH (4).jpeg", heading: "4K Projection"}
+            ];
+            const encodedGal = encodeURIComponent(JSON.stringify(galImages.map(g => g.image)));
+
+            document.getElementById('home-gallery-grid').innerHTML = galImages.slice(0,8).map((item, i) => `
+                <div class="reveal break-inside-avoid relative group cursor-pointer overflow-hidden rounded-sm bg-[#0a0a0a]" style="transition-delay: ${(i%4)*100}ms" onclick="window.openLightbox('${encodedGal}', ${i}, true)">
+                    <img src="${item.image}" alt="Gallery" class="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-105" />
+                    ${item.heading ? `<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent pt-12 pb-4 px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"><h3 class="text-white text-xs tracking-widest uppercase font-bold drop-shadow-md">${item.heading}</h3></div>` : ''}
+                    <div class="absolute inset-0 border border-white/0 group-hover:border-accent/30 transition-colors pointer-events-none z-10"></div>
+                </div>
+            `).join('');
+
+            document.getElementById('full-gallery-grid').innerHTML = galImages.map((item, i) => `
+                <div class="reveal break-inside-avoid relative group cursor-pointer bg-[#0a0a0a] overflow-hidden rounded-sm" style="transition-delay: ${(i%5)*50}ms" onclick="window.openLightbox('${encodedGal}', ${i}, true)">
+                    <img src="${item.image}" alt="Gallery" class="w-full h-auto object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                    ${item.heading ? `<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent pt-12 pb-4 px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0"><h3 class="text-white uppercase tracking-widest text-sm font-bold shadow-black drop-shadow-md">${item.heading}</h3></div>` : ''}
+                    <div class="absolute inset-0 border border-white/0 group-hover:border-accent/30 transition-colors duration-300 pointer-events-none z-10"></div>
+                </div>
+            `).join('');
+
+            // Testimonials
+            const tCont = document.getElementById('testimonials-container');
+            if(appState.testimonials.length === 0) {
+                tCont.innerHTML = `<div class="py-16 border border-white/5 bg-[#111] rounded-sm shadow-inner shadow-black/50 w-full"><p class="text-gray-500 font-light italic text-lg tracking-widest uppercase">Client testimonials will appear here soon.</p></div>`;
+            } else {
+                tCont.innerHTML = `
+                    ${appState.testimonials.map((t, i) => `
+                        <div class="testimonial-slide absolute inset-0 flex flex-col items-center justify-center ${i===appState.testiCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}">
+                            ${t.image ? `<img src="${t.image}" class="w-24 h-24 rounded-full mx-auto mb-8 object-cover border-2 border-accent shadow-[0_0_15px_rgba(212,175,55,0.2)]" />` : ''}
+                            <p class="text-xl md:text-2xl font-light text-gray-300 italic mb-8 max-w-3xl px-4 leading-relaxed">"${t.text}"</p>
+                            <h4 class="text-white uppercase tracking-widest font-bold">${t.name}</h4>
+                            <p class="text-accent text-sm tracking-widest uppercase mb-4">${t.place}</p>
+                            ${t.youtubeUrl ? `<button onclick="window.openVideo('${t.youtubeUrl}')" class="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent text-xs tracking-widest uppercase hover:text-accent transition-colors backdrop-blur-sm cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg> Watch Review</button>` : ''}
+                        </div>
+                    `).join('')}
+                    ${appState.testimonials.length > 1 ? `
+                        <div class="flex justify-center gap-4 mt-auto relative top-48 z-20">
+                            <button onclick="window.slideTesti(-1)" class="p-3 border border-white/10 hover:border-accent hover:text-accent transition-colors bg-[#111] hover:bg-black rounded-full cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+                            <button onclick="window.slideTesti(1)" class="p-3 border border-white/10 hover:border-accent hover:text-accent transition-colors bg-[#111] hover:bg-black rounded-full cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+                        </div>
+                    ` : ''}
+                `;
+            }
+
+            // Instagram
+            const instaCont = document.getElementById('instagram-grid-container');
+            const displayInsta = appState.instagram.slice(0, 6);
+            if(displayInsta.length > 0) {
+                instaCont.innerHTML = `<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-12">
+                    ${displayInsta.map((post, i) => `
+                        <div class="reveal relative group aspect-square overflow-hidden bg-[#111]" style="transition-delay: ${i*100}ms">
+                            <img src="${post.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
+                            <a href="${post.link || 'https://www.instagram.com/eyvox_global'}" target="_blank" rel="noreferrer" class="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-black">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                            </a>
+                        </div>
+                    `).join('')}
+                </div>`;
+            } else {
+                instaCont.innerHTML = `<div class="mt-12 py-12 border border-white/5 bg-[#0a0a0a] rounded-sm max-w-4xl mx-auto shadow-inner shadow-black/50"><p class="text-gray-500 font-light italic text-sm tracking-widest uppercase">Instagram posts will appear here once uploaded via Admin.</p></div>`;
+            }
+
+            initScrollReveal();
+        }
+
+        // Feature Logic: Hero Slider
+        window.setHeroSlide = (index) => {
+            appState.heroCurrent = index;
+            const slides = document.querySelectorAll('.hero-slide');
+            const indicators = document.querySelectorAll('#hero-indicators button');
+            slides.forEach((s, i) => {
+                s.className = `hero-slide absolute inset-0 ${i === index ? 'opacity-100 z-10' : 'opacity-0 z-0'}`;
+                indicators[i].className = `h-1 transition-all duration-500 cursor-pointer ${i === index ? 'w-8 bg-accent' : 'w-4 bg-white/30'}`;
+            });
+        };
+        setInterval(() => window.setHeroSlide((appState.heroCurrent + 1) % 4), 6000);
+
+        // Feature Logic: Testimonial Slider
+        window.slideTesti = (dir) => {
+            const len = appState.testimonials.length;
+            if(len < 2) return;
+            appState.testiCurrent = (appState.testiCurrent + dir + len) % len;
+            const slides = document.querySelectorAll('.testimonial-slide');
+            slides.forEach((s, i) => s.className = `testimonial-slide absolute inset-0 flex flex-col items-center justify-center ${i === appState.testiCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`);
+        };
+
+        window.handleContactSubmit = (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contact_name').value;
+            const phone = document.getElementById('contact_phone').value;
+            const loc = document.getElementById('contact_location').value;
+            const msg = document.getElementById('contact_message').value;
+            let wpMsg = `*New Consultation Request*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A`;
+            if(loc) wpMsg += `*Location & Size:* ${loc}%0A`;
+            wpMsg += `*Requirement:* ${msg}`;
+            window.open(`https://wa.me/919847700955?text=${wpMsg}`, '_blank');
+            e.target.reset();
+        };
+
+        window.openVideo = (url) => {
+            const m = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/);
+            const id = (m && m[2].length === 11) ? m[2] : null;
+            if(!id) return;
+            document.getElementById('video-container').innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" class="w-full h-full" frameborder="0" allowfullscreen></iframe>`;
+            document.getElementById('video-modal').classList.remove('hidden');
+            document.getElementById('video-modal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        };
+        window.closeVideoModal = () => {
+            document.getElementById('video-modal').classList.add('hidden');
+            document.getElementById('video-modal').classList.remove('flex');
+            document.getElementById('video-container').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        };
+
+        window.openLightbox = (encodedImages, index, isGalleryObj = false) => {
+            let imgs = JSON.parse(decodeURIComponent(encodedImages));
+            appState.lightbox.items = isGalleryObj ? appState.gallery : imgs;
+            appState.lightbox.index = index;
+            appState.lightbox.isGallery = isGalleryObj;
+            updateLightboxUI();
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+            document.getElementById('lightbox-modal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        };
+        function updateLightboxUI() {
+            const lb = appState.lightbox;
+            const item = lb.isGallery ? lb.items[lb.index].image : lb.items[lb.index];
+            const title = lb.isGallery ? lb.items[lb.index].heading : null;
+            document.getElementById('lightbox-img').src = item;
+            document.getElementById('lightbox-counter').innerText = `${lb.index + 1} / ${lb.items.length}`;
+            if(lb.items.length > 1) {
+                document.getElementById('lightbox-prev').style.display = 'block';
+                document.getElementById('lightbox-next').style.display = 'block';
+            } else {
+                document.getElementById('lightbox-prev').style.display = 'none';
+                document.getElementById('lightbox-next').style.display = 'none';
+            }
+            if(title) {
+                document.getElementById('lightbox-title-container').classList.remove('hidden');
+                document.getElementById('lightbox-title').innerText = title;
+            } else {
+                document.getElementById('lightbox-title-container').classList.add('hidden');
+            }
+        }
+        window.closeLightbox = () => {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+            document.getElementById('lightbox-modal').classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        };
+        window.nextLightbox = () => { appState.lightbox.index = (appState.lightbox.index + 1) % appState.lightbox.items.length; updateLightboxUI(); };
+        window.prevLightbox = () => { appState.lightbox.index = (appState.lightbox.index - 1 + appState.lightbox.items.length) % appState.lightbox.items.length; updateLightboxUI(); };
+
+        function initListeners() {
+            if(!db || !user) return;
+            const pRef = collection(db, 'artifacts', appId, 'public', 'data', 'projects');
+            onSnapshot(pRef, snap => { appState.projects = snap.docs.map(d => ({id: d.id, ...d.data()})); updateUI(); if(appState.route === 'admin-dashboard') renderAdmin(); }, console.error);
+            const gRef = collection(db, 'artifacts', appId, 'public', 'data', 'gallery');
+            onSnapshot(gRef, snap => { appState.gallery = snap.docs.map(d => ({id: d.id, ...d.data()})); updateUI(); if(appState.route === 'admin-dashboard') renderAdmin(); }, console.error);
+            const tRef = collection(db, 'artifacts', appId, 'public', 'data', 'testimonials');
+            onSnapshot(tRef, snap => { appState.testimonials = snap.docs.map(d => ({id: d.id, ...d.data()})); updateUI(); if(appState.route === 'admin-dashboard') renderAdmin(); }, console.error);
+            const iRef = collection(db, 'artifacts', appId, 'public', 'data', 'instagram');
+            onSnapshot(iRef, snap => { appState.instagram = snap.docs.map(d => ({id: d.id, ...d.data()})); updateUI(); if(appState.route === 'admin-dashboard') renderAdmin(); }, console.error);
+        }
+
+        window.handleAdminLogin = (e) => {
+            e.preventDefault();
+            if(document.getElementById('admin_user').value === 'Admin' && document.getElementById('admin_pass').value === 'admin') {
+                window.navigate('admin-dashboard');
+                renderAdmin();
+            } else {
+                document.getElementById('admin_error').classList.remove('hidden');
+            }
+        };
+
+        window.adminLogout = () => {
+            document.getElementById('admin_user').value = '';
+            document.getElementById('admin_pass').value = '';
+            document.getElementById('admin_error').classList.add('hidden');
+            window.navigate('home');
+        };
+
+        window.setAdminTab = (tab) => {
+            appState.adminTab = tab;
+            appState.adminForm = { editingId: null, data: {} };
+            document.querySelectorAll('.admin-tab').forEach(el => {
+                if(el.getAttribute('data-tab') === tab) el.className = "admin-tab uppercase tracking-wider text-sm pb-2 transition-colors border-b-2 border-accent text-white font-bold";
+                else el.className = "admin-tab uppercase tracking-wider text-sm pb-2 transition-colors text-gray-500 hover:text-white";
+            });
+            renderAdmin();
+        };
+
+        // Cloudinary Integration: The Upload Function
+        window.adminUpload = async (fileInput, field, index = null) => {
+            const file = fileInput.files[0];
+            if(!file) return;
+            const prevText = fileInput.nextElementSibling.innerText;
+            fileInput.nextElementSibling.innerText = "Uploading to Cloudinary...";
+            try {
+                // Prepare form data with your specific upload preset
+                const fd = new FormData(); 
+                fd.append('file', file); 
+                fd.append('upload_preset', UPLOAD_PRESET); 
+                
+                // Fetch directly to Cloudinary API
+                const res = await fetch(CLOUDINARY_URL, { method: 'POST', body: fd });
+                const data = await res.json();
+                
+                // Cloudinary Image Optimization (f_auto, q_auto)
+                const optUrl = data.secure_url.replace('/upload/', '/upload/f_auto,q_auto/');
+                
+                // Store resulting Cloudinary URL in our admin form state
+                if(index !== null) {
+                    if(!appState.adminForm.data[field]) appState.adminForm.data[field] = [];
+                    appState.adminForm.data[field][index] = optUrl;
+                } else {
+                    appState.adminForm.data[field] = optUrl;
+                }
+                renderAdmin();
+            } catch(e) { 
+                console.error("Cloudinary Upload Failed:", e); 
+                fileInput.nextElementSibling.innerText = "Upload Failed"; 
+            }
+        };
+
+        window.adminUpdateField = (field, val, isCheckbox=false) => { appState.adminForm.data[field] = isCheckbox ? val : val; };
+        
+        window.adminSave = async (colName) => {
+            if(!user) return alert("System not connected to DB. Please ensure Firebase Rules allow Anonymous writes.");
+            const ref = collection(db, 'artifacts', appId, 'public', 'data', colName);
+            // Saves the Cloudinary URLs and other data to Firebase Firestore
+            if(appState.adminForm.editingId) await updateDoc(doc(ref, appState.adminForm.editingId), appState.adminForm.data);
+            else await addDoc(ref, { ...appState.adminForm.data, createdAt: new Date().toISOString() });
+            appState.adminForm = { editingId: null, data: {} };
+            renderAdmin();
+        };
+
+        window.adminDelete = async (colName, id) => {
+            if(confirm("Delete this item?")) await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', colName, id));
+        };
+
+        window.adminEdit = (colName, id) => {
+            let item;
+            if(colName==='projects') item = appState.projects.find(x=>x.id===id);
+            if(colName==='gallery') item = appState.gallery.find(x=>x.id===id);
+            if(colName==='testimonials') item = appState.testimonials.find(x=>x.id===id);
+            if(colName==='instagram') item = appState.instagram.find(x=>x.id===id);
+            appState.adminForm = { editingId: id, data: JSON.parse(JSON.stringify(item)) };
+            renderAdmin();
+            window.scrollTo(0,0);
+        };
+
+        window.adminRemoveImageArray = (idx) => {
+            appState.adminForm.data.images.splice(idx, 1);
+            renderAdmin();
+        };
+
+        function renderAdmin() {
+            const area = document.getElementById('admin-content-area');
+            const tab = appState.adminTab;
+            const fData = appState.adminForm.data;
+            const isEdit = !!appState.adminForm.editingId;
+
+            if(tab === 'projects') {
+                const imgs = fData.images || [];
+                area.innerHTML = `
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <div class="bg-[#111] p-8 border border-white/5 space-y-4 shadow-xl">
+                            <h3 class="text-xl uppercase tracking-widest mb-6 text-accent">${isEdit?'Edit':'Add'} Project</h3>
+                            <input placeholder="Project Title / Name" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.title||''}" onchange="adminUpdateField('title', this.value)" />
+                            <input placeholder="Location" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.location||''}" onchange="adminUpdateField('location', this.value)" />
+                            <div class="grid grid-cols-2 gap-4">
+                                <input placeholder="Room Size" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.roomSize||''}" onchange="adminUpdateField('roomSize', this.value)" />
+                                <input placeholder="Screen Size" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.screenSize||''}" onchange="adminUpdateField('screenSize', this.value)" />
+                                <input placeholder="Projector" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.projector||''}" onchange="adminUpdateField('projector', this.value)" />
+                                <input placeholder="Audio System" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.audio||''}" onchange="adminUpdateField('audio', this.value)" />
+                                <input placeholder="Seating" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.seating||''}" onchange="adminUpdateField('seating', this.value)" />
+                                <input placeholder="Budget" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.budget||''}" onchange="adminUpdateField('budget', this.value)" />
+                            </div>
+                            <textarea placeholder="Description" rows="4" class="w-full bg-black p-3 border border-white/10 resize-none text-white" onchange="adminUpdateField('description', this.value)">${fData.description||''}</textarea>
+                            <input placeholder="YouTube URL" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.youtubeUrl||''}" onchange="adminUpdateField('youtubeUrl', this.value)" />
+                            <label class="flex items-center gap-3 cursor-pointer mt-4 py-2">
+                                <input type="checkbox" ${fData.featured?'checked':''} onchange="adminUpdateField('featured', this.checked, true)" class="w-5 h-5 accent-accent" />
+                                <span class="uppercase text-sm tracking-widest text-gray-300">Show on Home Page (Featured)</span>
+                            </label>
+                            <div class="pt-4 border-t border-white/10 space-y-4">
+                                <p class="text-sm text-gray-500 uppercase tracking-widest">Images (Up to 4) - Uploads to Cloudinary</p>
+                                ${[0,1,2,3].map(i => `
+                                    <div class="flex items-center gap-4">
+                                        ${imgs[i] ? `
+                                            <div class="relative w-24 h-16 border border-white/20"><img src="${imgs[i]}" class="w-full h-full object-cover"/><button onclick="adminRemoveImageArray(${i})" class="absolute -top-2 -right-2 bg-red-600 rounded-full p-1 cursor-pointer">X</button></div>
+                                        ` : `
+                                            <label class="w-full text-center text-sm border border-dashed border-white/30 p-3 cursor-pointer hover:border-accent text-gray-400 block">
+                                                <input type="file" class="hidden" accept="image/*" onchange="adminUpload(this, 'images', ${i})" />
+                                                <span>Upload Image ${i+1}</span>
+                                            </label>
+                                        `}
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="flex gap-4 pt-4">
+                                <button onclick="adminSave('projects')" class="flex-1 bg-accent text-black p-3 uppercase font-bold">${isEdit?'Update':'Save'}</button>
+                                ${isEdit ? `<button onclick="setAdminTab('projects')" class="border border-white/30 p-3 uppercase">Cancel</button>` : ''}
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-xl uppercase tracking-widest mb-6">Existing</h3>
+                            ${appState.projects.map(p => `
+                                <div class="bg-[#111] p-5 flex justify-between items-center border border-white/5">
+                                    <div class="flex gap-4 items-center">
+                                        ${p.images && p.images[0] ? `<img src="${p.images[0]}" class="w-16 h-12 object-cover" />` : ''}
+                                        <div><div class="font-bold">${p.title||p.location}</div><div class="text-xs text-accent uppercase tracking-widest">${p.featured?'Featured':''}</div></div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <button onclick="adminEdit('projects', '${p.id}')" class="text-blue-400 p-2">Edit</button>
+                                        <button onclick="adminDelete('projects', '${p.id}')" class="text-red-500 p-2">Del</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'gallery' || tab === 'instagram') {
+                const col = tab;
+                const items = tab === 'gallery' ? appState.gallery : appState.instagram;
+                area.innerHTML = `
+                    <div class="grid md:grid-cols-3 gap-12">
+                        <div class="md:col-span-1 bg-[#111] p-8 border border-white/5 space-y-4 h-fit shadow-xl">
+                            <h3 class="text-xl uppercase tracking-widest mb-6 text-accent">${isEdit?'Edit':'Add'} ${tab}</h3>
+                            ${tab==='gallery' ? `<input placeholder="Heading (Optional)" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.heading||''}" onchange="adminUpdateField('heading', this.value)" />` : ''}
+                            ${tab==='instagram' ? `<input placeholder="Post Link URL" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.link||''}" onchange="adminUpdateField('link', this.value)" />` : ''}
+                            ${fData.image ? `
+                                <div class="relative w-full aspect-video border border-white/20 mt-4"><img src="${fData.image}" class="w-full h-full object-cover"/><button onclick="adminUpdateField('image',''); renderAdmin();" class="absolute top-2 right-2 bg-black/80 p-2 text-red-500">X</button></div>
+                            ` : `
+                                <label class="inline-block border border-dashed border-white/30 p-8 cursor-pointer hover:border-accent transition-colors w-full text-center bg-black mt-4">
+                                    <input type="file" class="hidden" accept="image/*" onchange="adminUpload(this, 'image')" />
+                                    <span class="text-gray-400">Upload to Cloudinary</span>
+                                </label>
+                            `}
+                            <div class="flex gap-4 pt-4">
+                                <button onclick="adminSave('${col}')" class="flex-1 bg-accent text-black p-3 uppercase font-bold" ${!fData.image?'disabled':''}>${isEdit?'Update':'Save'}</button>
+                                ${isEdit ? `<button onclick="setAdminTab('${col}')" class="border border-white/30 p-3 uppercase">Cancel</button>` : ''}
+                            </div>
+                        </div>
+                        <div class="md:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-4">
+                            ${items.map(g => `
+                                <div class="relative group bg-[#111] border border-white/5 overflow-hidden">
+                                    <img src="${g.image}" class="w-full aspect-square object-cover" />
+                                    <div class="absolute inset-0 bg-black/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <button onclick="adminEdit('${col}', '${g.id}')" class="p-3 bg-blue-600 text-white rounded">Edit</button>
+                                        <button onclick="adminDelete('${col}', '${g.id}')" class="p-3 bg-red-600 text-white rounded">Del</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (tab === 'testimonials') {
+                area.innerHTML = `
+                    <div class="grid md:grid-cols-3 gap-12">
+                        <div class="md:col-span-1 bg-[#111] p-8 border border-white/5 space-y-4 h-fit shadow-xl">
+                            <h3 class="text-xl uppercase tracking-widest mb-6 text-accent">${isEdit?'Edit':'Add'} Review</h3>
+                            ${fData.image ? `
+                                <div class="relative w-24 h-24 mx-auto border-2 border-accent rounded-full mt-4"><img src="${fData.image}" class="w-full h-full object-cover rounded-full"/><button onclick="adminUpdateField('image',''); renderAdmin();" class="absolute -top-2 -right-2 bg-black/80 p-1 rounded-full text-red-500">X</button></div>
+                            ` : `
+                                <label class="inline-block border border-dashed border-white/30 p-4 cursor-pointer hover:border-accent w-full text-center bg-black mt-4">
+                                    <input type="file" class="hidden" accept="image/*" onchange="adminUpload(this, 'image')" />
+                                    <span class="text-gray-400 text-sm">Client Photo (Cloudinary)</span>
+                                </label>
+                            `}
+                            <input placeholder="Client Name" class="w-full bg-black p-3 border border-white/10 text-white mt-4" value="${fData.name||''}" onchange="adminUpdateField('name', this.value)" />
+                            <input placeholder="Place / Location" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.place||''}" onchange="adminUpdateField('place', this.value)" />
+                            <textarea placeholder="Testimonial Text" rows="4" class="w-full bg-black p-3 border border-white/10 resize-none text-white" onchange="adminUpdateField('text', this.value)">${fData.text||''}</textarea>
+                            <input placeholder="YouTube Link (Opt)" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.youtubeUrl||''}" onchange="adminUpdateField('youtubeUrl', this.value)" />
+                            <div class="flex gap-4 pt-4">
+                                <button onclick="adminSave('testimonials')" class="flex-1 bg-accent text-black p-3 uppercase font-bold">${isEdit?'Update':'Save'}</button>
+                                ${isEdit ? `<button onclick="setAdminTab('testimonials')" class="border border-white/30 p-3 uppercase">Cancel</button>` : ''}
+                            </div>
+                        </div>
+                        <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${appState.testimonials.map(t => `
+                                <div class="relative group bg-[#111] border border-white/5 p-6">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        ${t.image ? `<img src="${t.image}" class="w-12 h-12 rounded-full object-cover border border-accent" />` : ''}
+                                        <div><h4 class="font-bold">${t.name}</h4><p class="text-xs text-accent uppercase tracking-widest">${t.place}</p></div>
+                                    </div>
+                                    <p class="text-sm text-gray-400 italic line-clamp-3">"${t.text}"</p>
+                                    <div class="absolute inset-0 bg-black/90 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <button onclick="adminEdit('testimonials', '${t.id}')" class="p-3 bg-blue-600 text-white rounded">Edit</button>
+                                        <button onclick="adminDelete('testimonials', '${t.id}')" class="p-3 bg-red-600 text-white rounded">Del</button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize First Render
+        window.onload = () => {
+            renderStaticSections();
+            updateUI();
+        };
+    </script>
+</body>
+</html>
