@@ -739,15 +739,15 @@
                                 <h3 class="text-base md:text-lg font-bold tracking-widest uppercase mb-1 leading-tight">${p.title || p.location || 'Project'}</h3>
                                 <p class="text-accent text-[11px] md:text-xs tracking-widest uppercase mb-6">${p.location || ''}</p>
                                 
-                                <div class="space-y-4 text-sm md:text-base font-light mb-6 text-gray-200">
-                                    ${p.roomSize ? `<div><span class="text-gray-500 uppercase tracking-widest text-[10px] block mb-0.5">Room Size</span><span class="text-sm">${p.roomSize}</span></div>` : ''}
-                                    ${p.screenSize ? `<div><span class="text-gray-500 uppercase tracking-widest text-[10px] block mb-0.5">Screen Size</span><span class="text-sm">${p.screenSize}</span></div>` : ''}
-                                    ${p.projector ? `<div><span class="text-gray-500 uppercase tracking-widest text-[10px] block mb-0.5">Projector</span><span class="text-sm">${p.projector}</span></div>` : ''}
-                                    ${p.audio ? `<div><span class="text-gray-500 uppercase tracking-widest text-[10px] block mb-0.5">Sound</span><span class="text-sm">${p.audio}</span></div>` : ''}
-                                    ${p.budget ? `<div><span class="text-gray-500 uppercase tracking-widest text-[10px] block mb-0.5">Budget</span><span class="text-sm">${p.budget}</span></div>` : ''}
+                                <div class="grid grid-cols-[90px_1fr] gap-x-2 gap-y-4 font-light mb-6 text-gray-200 text-sm">
+                                    ${p.roomSize ? `<div class="text-gray-400">Room Size:</div><div class="leading-snug">${p.roomSize}</div>` : ''}
+                                    ${p.screenSize ? `<div class="text-gray-400">Screen Size:</div><div class="leading-snug">${p.screenSize}</div>` : ''}
+                                    ${p.projector ? `<div class="text-gray-400">Projector:</div><div class="leading-snug">${p.projector}</div>` : ''}
+                                    ${p.audio ? `<div class="text-gray-400">Sound:</div><div class="leading-snug">${p.audio}</div>` : ''}
+                                    ${p.budget ? `<div class="text-gray-400">Budget:</div><div class="leading-snug">${p.budget}</div>` : ''}
                                 </div>
                                 
-                                ${p.description ? `<p class="text-xs md:text-sm text-gray-300 font-light leading-relaxed mb-6 border-t border-white/15 pt-4">${p.description}</p>` : ''}
+                                ${p.description ? `<p class="text-sm text-gray-300 font-light leading-relaxed mb-6 border-t border-white/15 pt-4">${p.description}</p>` : ''}
                             </div>
                             
                             ${p.youtubeUrl ? `
