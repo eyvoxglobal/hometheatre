@@ -252,7 +252,7 @@
                     <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Featured Project</h2>
                     <div class="h-px w-24 bg-accent mt-6 opacity-50 mx-auto"></div>
                 </div>
-                <div id="home-featured-projects" class="mt-16"></div>
+                <div id="home-featured-projects" class="mt-16 flex flex-col gap-[20px]"></div>
                 <div class="mt-16 text-center">
                     <button onclick="window.navigate('projects')" class="px-8 py-4 uppercase tracking-[0.2em] text-sm font-semibold transition-all duration-300 bg-accent text-black hover:bg-white cursor-pointer">View All Projects</button>
                 </div>
@@ -364,7 +364,7 @@
                 <h2 class="text-4xl md:text-5xl font-light uppercase tracking-widest">Our Projects</h2>
                 <div class="h-px w-24 bg-accent mt-6 opacity-50"></div>
             </div>
-            <div id="all-projects-container" class="mt-20"></div>
+            <div id="all-projects-container" class="mt-20 flex flex-col gap-[20px]"></div>
         </div>
 
         <div id="page-gallery" class="page-section hidden pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
@@ -717,7 +717,7 @@
             const encodedImages = encodeURIComponent(JSON.stringify(p.images || []));
             
             return `
-                <div class="border border-white/25 p-[20px] md:p-[50px] mb-[60px] last:mb-0 rounded-sm bg-[#0a0a0a]">
+                <div class="border border-white/25 p-[20px] md:p-[50px] rounded-sm bg-[#0a0a0a]">
                     <div class="grid lg:grid-cols-12 gap-8 lg:gap-[40px] h-full items-stretch">
                         
                         <!-- 75% Width Image Section -->
