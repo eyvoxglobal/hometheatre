@@ -784,7 +784,7 @@
         function updateUI() {
             const projs = appState.projects;
             
-            const featured = projs.filter(p => p.featured).slice(0, 1);
+            const featured = projs.filter(p => p.featured).slice(0, 3);
             const featHtml = featured.map(p => `<div class="reveal">${buildProjectCard(p, true)}</div>`).join('');
             document.getElementById('home-featured-projects').innerHTML = featHtml || '<p class="text-gray-500 italic">No featured project selected.</p>';
 
@@ -1115,12 +1115,6 @@
                     appState.adminForm.data.images = appState.adminForm.data.images.filter(img => img && img.trim() !== '');
                 }
 
-                if (colName === 'projects' && appState.adminForm.data.featured) {
-                    const otherFeatured = appState.projects.filter(p => p.featured && p.id !== appState.adminForm.editingId);
-                    const batchPromises = otherFeatured.map(p => updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'projects', p.id), { featured: false }));
-                    await Promise.all(batchPromises);
-                }
-
                 const ref = collection(db, 'artifacts', appId, 'public', 'data', colName);
                 if(appState.adminForm.editingId) {
                     await updateDoc(doc(ref, appState.adminForm.editingId), appState.adminForm.data);
@@ -1206,7 +1200,7 @@
                             <input placeholder="YouTube URL" class="w-full bg-black p-3 border border-white/10 text-white" value="${fData.youtubeUrl||''}" onchange="adminUpdateField('youtubeUrl', this.value)" />
                             <label class="flex items-center gap-3 cursor-pointer mt-4 py-2">
                                 <input type="checkbox" ${fData.featured?'checked':''} onchange="adminUpdateField('featured', this.checked)" class="w-5 h-5 accent-accent" />
-                                <span class="uppercase text-sm tracking-widest text-gray-300">Show on Home Page (Selects ONLY this project)</span>
+                                <span class="uppercase text-sm tracking-widest text-gray-300">Show on Home Page</span>
                             </label>
                             <div class="pt-4 border-t border-white/10 space-y-4">
                                 <p class="text-sm text-gray-500 uppercase tracking-widest">Images (Up to 4) - Uploads to Cloudinary</p>
